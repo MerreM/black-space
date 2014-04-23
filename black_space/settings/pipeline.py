@@ -6,6 +6,15 @@ PIPELINE_CSS = {
         ),
         'output_filename': 'css/style.min.css',
     },
+    'bootstrap': {
+        'source_filenames': (
+            'less/bootstrap.less',
+        ),
+        'output_filename': 'css/b.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
+    },
 }
 
 PIPELINE_JS = {
@@ -15,6 +24,23 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/main.min.js',
     },
+    'bootstrap': {
+        'source_filenames': (
+          'bootstrap-js/js/transition.js',
+          'bootstrap-js/js/modal.js',
+          'bootstrap-js/js/dropdown.js',
+          'bootstrap-js/js/scrollspy.js',
+          'bootstrap-js/js/tab.js',
+          'bootstrap-js/js/tooltip.js',
+          'bootstrap-js/js/popover.js',
+          'bootstrap-js/js/alert.js',
+          'bootstrap-js/js/button.js',
+          'bootstrap-js/js/collapse.js',
+          'bootstrap-js/js/carousel.js',
+          'bootstrap-js/js/affix.js',
+        ),
+        'output_filename': 'js/b.js',
+      },
 }
 
 PIPELINE_COMPILERS = (

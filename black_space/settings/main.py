@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_extensions',
     'kombu.transport.django',
+    'twitter_bootstrap',
     'pipeline',
     'djcelery',
     'reversion',
