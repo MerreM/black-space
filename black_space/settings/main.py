@@ -26,6 +26,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ["https://0xdb.co.uk"]
 
+SITE_ID = 1
+
 
 # Application definition
 
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'djcelery',
     'reversion',
     'guardian',
+    'django_markdown',
     'mainsite',
 
 ]

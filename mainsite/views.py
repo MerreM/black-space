@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from mainsite.models import Post
 # Create your views here.
 def home(request):
-    return render(request,"index.html",{})
+    latest_post = Post.objects.latest('created')
+    return render(request,"index.html",{"latest":latest_post})

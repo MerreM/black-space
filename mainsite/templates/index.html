@@ -1,25 +1,6 @@
 {% extends "base.html" %}
-{% block 'meta-description' %}{% endblock %}
-{% block 'after-head' %}
-{% endblock %}
 {% block 'content' %}
 <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque congue purus at aliquam. Vivamus nibh tellus, malesuada eu pharetra ut, rutrum ut eros. Phasellus ultricies interdum quam, sit amet dapibus arcu vehicula quis. Aenean ornare eros eu ipsum suscipit, et aliquam purus vulputate. Mauris non lobortis libero. Aenean vitae porttitor mi. Fusce molestie eros non auctor tincidunt. Pellentesque lacus velit, vulputate vel sem a, fermentum varius odio. Aenean ac nunc tempor, lacinia erat nec, elementum nisi. Aenean iaculis, libero eget sagittis volutpat, ipsum nisl facilisis tellus, vitae adipiscing nisi lorem quis velit.
-</div>
-<hr>
-<div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque congue purus at aliquam. Vivamus nibh tellus, malesuada eu pharetra ut, rutrum ut eros. Phasellus ultricies interdum quam, sit amet dapibus arcu vehicula quis. Aenean ornare eros eu ipsum suscipit, et aliquam purus vulputate. Mauris non lobortis libero. Aenean vitae porttitor mi. Fusce molestie eros non auctor tincidunt. Pellentesque lacus velit, vulputate vel sem a, fermentum varius odio. Aenean ac nunc tempor, lacinia erat nec, elementum nisi. Aenean iaculis, libero eget sagittis volutpat, ipsum nisl facilisis tellus, vitae adipiscing nisi lorem quis velit.
-</div>
-<hr>
-<div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque congue purus at aliquam. Vivamus nibh tellus, malesuada eu pharetra ut, rutrum ut eros. Phasellus ultricies interdum quam, sit amet dapibus arcu vehicula quis. Aenean ornare eros eu ipsum suscipit, et aliquam purus vulputate. Mauris non lobortis libero. Aenean vitae porttitor mi. Fusce molestie eros non auctor tincidunt. Pellentesque lacus velit, vulputate vel sem a, fermentum varius odio. Aenean ac nunc tempor, lacinia erat nec, elementum nisi. Aenean iaculis, libero eget sagittis volutpat, ipsum nisl facilisis tellus, vitae adipiscing nisi lorem quis velit.
-</div>
-<hr>
-<div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque congue purus at aliquam. Vivamus nibh tellus, malesuada eu pharetra ut, rutrum ut eros. Phasellus ultricies interdum quam, sit amet dapibus arcu vehicula quis. Aenean ornare eros eu ipsum suscipit, et aliquam purus vulputate. Mauris non lobortis libero. Aenean vitae porttitor mi. Fusce molestie eros non auctor tincidunt. Pellentesque lacus velit, vulputate vel sem a, fermentum varius odio. Aenean ac nunc tempor, lacinia erat nec, elementum nisi. Aenean iaculis, libero eget sagittis volutpat, ipsum nisl facilisis tellus, vitae adipiscing nisi lorem quis velit.
-</div>
-<hr>
-<div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque congue purus at aliquam. Vivamus nibh tellus, malesuada eu pharetra ut, rutrum ut eros. Phasellus ultricies interdum quam, sit amet dapibus arcu vehicula quis. Aenean ornare eros eu ipsum suscipit, et aliquam purus vulputate. Mauris non lobortis libero. Aenean vitae porttitor mi. Fusce molestie eros non auctor tincidunt. Pellentesque lacus velit, vulputate vel sem a, fermentum varius odio. Aenean ac nunc tempor, lacinia erat nec, elementum nisi. Aenean iaculis, libero eget sagittis volutpat, ipsum nisl facilisis tellus, vitae adipiscing nisi lorem quis velit.
+    {% include "post.html" with post=latest %}
 </div>
 {% endblock %}
