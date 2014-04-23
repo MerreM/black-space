@@ -10,7 +10,6 @@ urlpatterns = patterns('',
     url(r'^$', include('mainsite.urls',namespace="home")),
     # url(r'^$', 'black_space.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url('^markdown/', include( 'django_markdown.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

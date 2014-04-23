@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'djcelery',
     'reversion',
     'guardian',
-    'django_markdown',
     'mainsite',
 
 ]
@@ -104,4 +103,4 @@ MEDIA_URL = '/media/'
 
 ANONYMOUS_USER_ID = 0
 
-
+MARKDOWN_EDITOR_SKIN = 'simple'
