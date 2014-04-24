@@ -7,13 +7,13 @@ MAX_X = canvas.width;
 GRAVITY = 0.01;
 EDGE_THRES = 5;
 FRICTION = 0.8;
-POLY_COUNT = 100;
+POLY_COUNT = 5;
 ALPHA = 0.3;
-FACES = true;
+FACES = false;
 
 var imageObj = new Image();
 
-imageObj.src = "/img/favicon.png";
+imageObj.src = "/static/favicon.ico";
 
 function RGB2Color(r,g,b){
     return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
@@ -150,7 +150,7 @@ $(document).ready(function(){
         update(cloud);
 
         // clear
-        context.fillStyle = "rgba(0, 0, 0, "+ALPHA+")"
+        context.fillStyle = "rgba(33, 33, 33, "+ALPHA+")"
         context.fillRect(0,0,MAX_X,MAX_Y);
 
         // draw stuff
