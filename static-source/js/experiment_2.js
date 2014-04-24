@@ -1,16 +1,18 @@
 try {
-    var canvas = $('#experiment_1')[0];
+    var canvas = $('#experiment_2')[0];
     var context = canvas.getContext('2d');
     fitToContainer(canvas);
 
     MAX_Y = canvas.height;
     MAX_X = canvas.width;
+    MAX_Z = 10;
     GRAVITY = 0.01;
+
     EDGE_THRES = 5;
     FRICTION = 0.8;
-    POLY_COUNT = 5;
-    ALPHA = 0.3;
-    FACES = true;
+    POLY_COUNT = 20;
+    ALPHA = 0.8;
+    FACES = false;
 
     var imageObj = new Image();
 
@@ -26,19 +28,17 @@ try {
     }
 
     function changeColour(i){
-        frequency = 0.1;
-        red   = Math.sin(frequency*i + 0) * 127 + 128;
-        green = Math.sin(frequency*i + 2*Math.PI/3) * 127 + 128;
-        blue  = Math.sin(frequency*i + 4*Math.PI/3) * 127 + 128;
-        return RGB2Color(red,green,blue);
+        return RGB2Color(0,0,0);
     }
 
     function dObject(){
         this.init = function(){
             this.x_pos = (Math.random()*MAX_X);
             this.y_pos = (Math.random()*MAX_Y);
+            this.z_pos = (Math.random()*10);
             this.x_speed=(Math.random()*10)-5;
             this.y_speed=(Math.random()*10)-5;
+            this.z_speed=(Math.random()*10)-5;
             this.alive = false;
             this.count = Math.random()*100;
             this.colour = 0x000000;
@@ -48,7 +48,7 @@ try {
             this.friction = false;
             this.width = 10;
             this.height = 10;
-            this.size = (Math.random()+3.5);
+            this.size = (Math.random()*5);
         }
         this.init();
         this.get_height = function(){
@@ -63,8 +63,13 @@ try {
             if(FACES){
                 context.drawImage(imageObj,this.x_pos,this.y_pos,this.get_width(),this.get_height())
             } else {
+                context.beginPath();
+                context.arc(this.x_pos, this.y_pos, this.size, 0, 2 * Math.PI, false);
                 context.fillStyle=this.colour;
-                context.fillRect(this.x_pos,this.y_pos,this.get_width(),this.get_height())
+                context.fill();
+                context.lineWidth = 0.1;
+                context.strokeStyle = '#003300';
+                context.stroke();
             }
         }
         this.update = function(x_accel, y_accel){
@@ -123,7 +128,7 @@ try {
     // explicitWord
 
     $(document).ready(function(){
-        var canvas = $('#experiment_1')[0];
+        var canvas = $('#experiment_2')[0];
         var context = canvas.getContext('2d');
         fitToContainer(canvas);
         window.requestAnimFrame = (function(callback) {
