@@ -20,6 +20,7 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'main': {
         'source_filenames': (
+          'js/main.js',
           'js/*.js',
         ),
         'output_filename': 'js/main.min.js',
