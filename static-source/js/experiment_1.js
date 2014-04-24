@@ -150,7 +150,7 @@ $(document).ready(function(){
         update(cloud);
 
         // clear
-        context.fillStyle = "rgba(33, 33, 33, "+ALPHA+")"
+        context.fillStyle = "rgba(37, 37, 37, "+ALPHA+")"
         context.fillRect(0,0,MAX_X,MAX_Y);
 
         // draw stuff
