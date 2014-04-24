@@ -1,7 +1,10 @@
 <nav>
     <ul class="nav nav-stacked">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">About Me</a></li>
+        {% url "mainsite:home" as current %}
+        <li class="{% if current ==  request.path %}active{% endif %}"><a href="{{current}}">Home</a></li>
+        {% url "mainsite:about_me" as current %}
+        <li class="{% if current ==  request.path %}active{% endif %}"><a href="{{current}}">About Me</a></li>
+        {% url "mainsite:projects" as current %}
+        <li class="{% if current ==  request.path %}active{% endif %}"><a href="{{current}}">Projects</a></li>
     </ul>
 </nav>

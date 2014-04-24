@@ -10,7 +10,7 @@
         
         <title>
             {% block 'title' %}
-            black-space
+            black_space
             {% endblock %}
         </title>
         <meta name="description" content="">
@@ -35,9 +35,13 @@
             {% include 'header.html' %}
             {% endblock %}
             <div class=col-md-3>
+                <div class=col-md-6>
                 {% block navigation %}
                     {% include "navigation.html" %}
                 {% endblock %}
+                </div>
+                <div class=col-md-6>
+                </div>
             </div>
             <div class=col-md-6>
             {% block 'content' %}
