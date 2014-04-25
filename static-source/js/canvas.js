@@ -96,7 +96,7 @@ function genericShape(){
                     context.lineTo(this.points[i].x, this.points[i].y);
                     context.closePath();
                     context.lineWidth = 2;
-                    context.strokeStyle = '#00'+i;
+                    context.strokeStyle = '#'+i+i+i;
                     context.stroke();
                 }
         }
@@ -124,6 +124,10 @@ function newTriangle(){
             this.center.move_degrees(270,this.size),
             this.center.move_degrees(30,this.size),
             this.center.move_degrees(150,this.size)
+            // this.center.move_degrees(0,this.size),
+            // this.center.move_degrees(90,this.size),
+            // this.center.move_degrees(180,this.size),
+            // this.center.move_degrees(270,this.size)
         ]
     }
     this.update = function(x,y,z){
