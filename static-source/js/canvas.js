@@ -56,18 +56,11 @@ function coord(x,y){
     this.rotate = function(angle,pivot){
         // Calulate new positions relative to pivot.
         // Add 
-        console.log("pivot",pivot);
-        console.log("this",this);
         var relative = new coord((this.x-pivot.x),(this.y-pivot.y));
         var root = new coord(0,0); 
-        console.log("relative",relative);
         var relative_distance = root.distance(relative);
         var pivot_angle = root.angle(relative);
-        console.log("pivot_angle",pivot_angle);
-        console.log("pivot_angle",root.angle_degrees(relative));
-        var res = root.move(pivot_angle,relative_distance);
-        // var res = this.move(pivot_angle+angle,relative_distance);
-        console.log("Res:",res,"\n");
+        var res = pivot.move(pivot_angle+angle,relative_distance);
         return res;
     }
     this.distance = function(point){
@@ -76,9 +69,7 @@ function coord(x,y){
         return Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
     }
     this.angle = function(point){
-        console.log("this",this)
-        console.log("point",point)
-        var angle =  Math.PI+Math.atan2(this.y-point.y,this.y-point.y);
+        var angle =  Math.PI+Math.atan2(this.y-point.y,this.x-point.x);
         return angle;
     }
     this.angle_degrees = function(point){
@@ -89,8 +80,6 @@ function coord(x,y){
         var y = this.y + point.y;
         return new coord(x,y);
     }
-
-
 }
 
 
@@ -141,7 +130,7 @@ function newTriangle(){
     }
     this.rotate = function(){
         for (var i in this.points){
-            this.points[i] = this.points[i].rotate_degrees(10,this.center)
+            this.points[i] = this.points[i].rotate_degrees(1,this.center)
         }
     }
     this.init(new coord(200,200));
@@ -167,7 +156,7 @@ function SYMBOL(){
     this.update_triangle = function(){
         if(!DONE){
             tri.rotate();
-            DONE = true;
+            // DONE = true;
         }
     }
 
