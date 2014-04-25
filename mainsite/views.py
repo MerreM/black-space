@@ -1,9 +1,6 @@
 from django.shortcuts import render
-from mainsite.models import Post
-
 
 def home(request):
-    # latest_post = Post.objects.latest('created')
     return render(request,"index.html",{})
 
 def about_me(request):
@@ -11,3 +8,6 @@ def about_me(request):
 
 def projects(request):
     return render(request,"index.html",{})
+
+def canvas(request):
+    return render(request,"canvas.html",{})    
