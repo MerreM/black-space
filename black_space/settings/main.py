@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ["www.0xdb.co.uk"]
+ALLOWED_HOSTS = ["www.0xdb.co.uk","0xdb.co.uk"]
 
 SITE_ID = 1
 
