@@ -2,6 +2,14 @@ var canvas = $("#main_canvas")[0];
 var context = canvas.getContext('2d');
 var DEBUG = true;
 
+// OKay, here are a few hacks to make Javascript more likeable. Inheritance, and getClass etc.
+
+// Object.prototype.getName = function() { 
+//    var funcNameRegex = /function (.{1,})\(/;
+//    var results = (funcNameRegex).exec((this).constructor.toString());
+//    return (results && results.length > 1) ? results[1] : "";
+// };
+
 Function.prototype.method = function (name, func) {
     this.prototype[name] = func;
     return this;
@@ -37,20 +45,22 @@ Function.method('inherits', function (parent) {
     return this;
 });
 
+//Begin code proper.
+
 function coord(x,y){
     this.x=x;
     this.y=y;
     this.move_degrees = function(angle,distance){
-        var rad = angle * Math.PI / 180
+        var rad = angle * Math.PI / 180;
         return this.move(rad,distance);
     }
     this.move = function(angle,distance){
-        var x = this.x + (Math.cos(angle) * distance) ;
-        var y = this.y + (Math.sin(angle) * distance) ;
+        var x = this.x + (Math.cos(angle) * distance);
+        var y = this.y + (Math.sin(angle) * distance);
         return new coord(x,y);
     }
     this.rotate_degrees = function(angle,pivot){
-        var rad = angle * Math.PI / 180
+        var rad = angle * Math.PI / 180;
         return this.rotate(rad,pivot);
     }
     this.rotate = function(angle,pivot){
@@ -82,11 +92,57 @@ function coord(x,y){
     }
 }
 
+function vector(angle,distance){
+    this.name = "vector";
+    this.angle = angle;
+    this.distance=distance;
+    this.to_coord = function(){
+        return new coord(0,0).move(angle,distance);
+    }
+}
+
+function particle(inCoord, inVel){
+    this.name = "particle";
+    this.life = 0;
+    this.init = function (inCoord, inVel){
+        this.location = inCoord;
+        this.vector = inVel;
+    }
+    this.update = function(root, vector){
+        // console.log("move")
+        var current = root.distance(this.location)
+        var res = this.location.move(this.vector.angle,this.vector.distance);
+        // console.log(current)
+        this.location = res;
+        this.life+=1;
+        if(this.life>100){
+            return false
+        }
+        return true;
+        // console.log(this.vector);
+    }
+    this.draw = function(){
+
+        context.beginPath();
+        context.arc(this.location.x, this.location.y, 2, 0, 2 * Math.PI, false);
+        context.fillStyle = '#f00';
+        context.fill();
+        context.lineWidth = 5;
+        context.strokeStyle = '#f00';
+        context.stroke();
+        // context.fillRect(this.location.x,this.location.y,10,10);
+    }
+    this.rotate = function(angle,center){
+        this.location = this.location.rotate(angle,center);
+    }
+    this.init(inCoord,inVel);
+}
 
 function genericShape(){
     this.init = function(center){
         this.center = center;
         this.size = 1;
+        this.children = [];
     }
     this.draw = function(){
         if (DEBUG){
@@ -96,7 +152,7 @@ function genericShape(){
                     context.lineTo(this.points[i].x, this.points[i].y);
                     context.closePath();
                     context.lineWidth = 2;
-                    context.strokeStyle = '#'+i+i+i;
+                    context.strokeStyle = '#000';
                     context.stroke();
                 }
         }
@@ -109,14 +165,77 @@ function genericShape(){
         context.lineWidth = 2;
         context.strokeStyle = 'black';
         context.stroke();
+        for (var i in this.points){
+            this.children[i].draw();
+        }
     }
     this.update = function(x,y,z){
 
-    } 
+    }
+    this.rotate = function(angle_degrees){
+        for (var i in this.points){
+            this.points[i] = this.points[i].rotate_degrees(angle_degrees,this.center);
+        }
+        for (var i in this.children){
+            if(this.children[i].name == 'particle' ){
+                var rad = angle_degrees * Math.PI / 180;
+                this.children[i].rotate(rad,this.center);
+            } else {
+                this.children[i].rotate(angle_degrees);
+            }
+        }
+    }
 }
 
+function particleEffect(center,angle){
+    this.name = "effect"
+    this.init = function(center,angle){
+        var rad = angle * Math.PI / 180;
+        this.center = center;
+        this.size = 75;
+        this.root = this.center.move_degrees(angle,this.size);
+        this.points = [
+            this.center.move_degrees(angle,this.size),
+        ]
+        var accel = this.root.distance(this.center);
+        this.children = [
+            new particle(this.root,new vector(rad+Math.PI,-1)),
+        ]
+    }
+    this.draw = function(){
+        if (DEBUG){
+            for (var i in this.points){
+                context.beginPath();
+                context.moveTo(this.center.x,this.center.y);
+                context.lineTo(this.points[i].x, this.points[i].y);
+                context.closePath();
+                context.lineWidth = 2;
+                context.strokeStyle = '#fff';
+                context.stroke();
+            }
+        }
+        for (var i in this.children){
+            this.children[i].draw();
+        }
+    }
+    this.update = function(x,y,z){
+        this.root = this.points[0];
+        var angle = this.center.angle(this.root);
+        for (var i in this.children){
+            if(!this.children[i].update(this.root,new vector(angle,0))){
+                this.children.splice(i,1);
+            } else if(this.children[i].life==50){
+                this.children.push(new particle(this.root,new vector(angle+Math.PI,-1)));
+            }
+        }
+    }
+    this.init(center,angle);
 
-function newTriangle(){
+}
+particleEffect.inherits(genericShape);
+
+function newTriangle(center){
+    this.name  = "triangle"
     this.init = function(center){
         this.center = center;
         this.size = 150;
@@ -129,42 +248,51 @@ function newTriangle(){
             // this.center.move_degrees(180,this.size),
             // this.center.move_degrees(270,this.size)
         ]
+        this.children = [
+            new particleEffect(center,330),
+            new particleEffect(center,210),
+            new particleEffect(center,90),
+        ]
     }
     this.update = function(x,y,z){
-    }
-    this.rotate = function(){
-        for (var i in this.points){
-            this.points[i] = this.points[i].rotate_degrees(1,this.center)
+        this.rotate(1);
+        for (var i in this.children){
+            this.children[i].update(x,y,z);
         }
     }
-    this.init(new coord(200,200));
+    this.draw = function(){
+        this.uber('draw');
+        for (var i in this.points){
+            context.beginPath();
+            context.moveTo(this.center.x,this.center.y);
+            context.lineTo(this.points[i].x, this.points[i].y);
+            context.closePath();
+            context.lineWidth = 2;
+            context.strokeStyle = '#000';
+            context.stroke();
+        }
+    }
+    this.init(center);
 }
 newTriangle.inherits(genericShape);
+
 
 function SYMBOL(){
     var canvas = $("#main_canvas")[0];
     var context = canvas.getContext('2d');
     var MAX_Y = canvas.height;
     var MAX_X = canvas.width;
-    var ALPHA = 1;
+    var ALPHA = 0.2;
     var DONE = false;
     // fitToContainer(this.canvas);
     context.fillStyle = "rgba(37, 37, 37, "+ALPHA+")"
     context.fillRect(0,0,MAX_X,MAX_Y);
-    var tri =new newTriangle();
+    center = new coord(200,200)
+    var tri =new newTriangle(center);
+    var contents = [tri,
+        ];
 
-    this.draw_triangle = function(){
-        tri.draw();
-    }
-
-    this.update_triangle = function(){
-        if(!DONE){
-            tri.rotate();
-            // DONE = true;
-        }
-    }
-
-    this.run = function(draw_background,update_background){
+    this.run = function(contents){
         window.requestAnimFrame = (function(callback) {
             return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
             function(callback) {
@@ -172,31 +300,27 @@ function SYMBOL(){
             };
         })();
 
-        // cloud = prepareObjects();
-        cloud = [];
-        function update(container){
-            update_background();
-            for(var i=0;i<container.length;i++){
-                container[i].update(0,0);
+        function update(){
+            for(var i=0;i<contents.length;i++){
+                contents[i].update(0,0,0);
             }
         }
         function draw(container){
-            draw_background()
-            for(var i=0;i<container.length;i++){
-                container[i].draw();
+            for(var i=0;i<contents.length;i++){
+                contents[i].draw();
             }   
         }
 
         function animate() {
             
             // update
-            update(cloud);
+            update();
             // clear
             context.fillStyle = "rgba(37, 37, 37, "+ALPHA+")"
             context.fillRect(0,0,MAX_X,MAX_Y);
 
             // draw stuff
-            draw(cloud);
+            draw();
 
             // request new frame
             requestAnimFrame(function() {
@@ -205,6 +329,6 @@ function SYMBOL(){
         }
         animate();
     }
-    this.run(this.draw_triangle,this.update_triangle);
+    this.run(contents);
 }
 var run_me = new SYMBOL();
