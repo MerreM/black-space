@@ -22,8 +22,8 @@ PIPELINE_JS = {
         'source_filenames': (
           'js/main.js',
           'js/canvas.js',
-          # 'js/generic_particles.js',
-          # 'js/*.js',
+          'js/generic_particles.js',
+          'js/*.js',
         ),
         'output_filename': 'js/main.min.js',
     },
