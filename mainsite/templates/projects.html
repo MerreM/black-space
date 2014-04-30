@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 {% block 'content' %}
 <div>
-    <h2>Here I'm going to try and keep some sort of dev diary/blog</h2>
+    <h2>Projects!</h2>
     <div>
+        <p>Here I'm going to try and keep some sort of dev diary/blog</p>
         <p>I'm not going to pretend it's going to be well updated, informative or even interesting.</p>
         <p>Or for that matter than anyone but me will ever read it.</p>
-        
+    </div>
+    <div>
+        <ul class="nav nav-tabs nav-justified">
+        {% for catergory in parent_cats %}
+            <li>
+            <a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a>
+            </li>
+        {% endfor %}
+        </ul>
     </div>
 </div>
 {% endblock %}

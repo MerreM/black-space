@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'reversion',
     'guardian',
     'mainsite',
+    'blog',
 
 ]
 
