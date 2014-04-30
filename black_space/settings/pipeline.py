@@ -21,11 +21,16 @@ PIPELINE_JS = {
     'main': {
         'source_filenames': (
           'js/main.js',
-          'js/canvas.js',
           'js/generic_particles.js',
-          'js/*.js',
+          'js/experiment_*.js',
         ),
         'output_filename': 'js/main.min.js',
+    },
+    'canvas': {
+        'source_filenames': (
+          'js/canvas.js',
+        ),
+        'output_filename': 'js/canvas.min.js',
     },
     'bootstrap': {
         'source_filenames': (

@@ -58,7 +58,9 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         {% compressed_js 'bootstrap' %}
+        {% block main_js %}
         {% compressed_js 'main' %}
+        {% endblock %}
         {% comment %}
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load compressed %}
 {% block 'content' %}
 <div class="fill">
     <canvas id="main_canvas" width="400px" height="400px"></canvas>
@@ -6,4 +7,7 @@
 {% endblock %}
 {% block experiement %}
 
+{% endblock %}
+{% block main_js %}
+{% compressed_js 'canvas' %}
 {% endblock %}
