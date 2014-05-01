@@ -15,5 +15,11 @@ def catergory(request,catergory):
     }
     return render(request,"catergory.html",context)
 
-def post(request,catergory,post):
+def post(request,catergory=None,slug=None):
+    found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
+    found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug)
+    context = {
+        "post":found_post,
+    }
+    return render(request,"post.html",context)
     pass
