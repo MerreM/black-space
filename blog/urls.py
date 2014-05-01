@@ -5,5 +5,5 @@ admin.autodiscover()
 
 urlpatterns = patterns('blog.views',
     url(r'^(?P<catergory>\w+)/$', 'catergory', name='catergory'),
-    url(r'^(?P<catergory>\w+)/(?P<slug>\w+)/$', 'post', name='post'),
+    url(r'^(?P<catergory>\w+)/(?P<slug>[-\w]+)/$', 'post', name='post'),
 )
