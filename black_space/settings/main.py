@@ -28,6 +28,8 @@ ALLOWED_HOSTS = ["www.0xdb.co.uk","0xdb.co.uk"]
 
 SITE_ID = 1
 
+CACHING = True
+
 
 # Application definition
 
@@ -51,16 +53,20 @@ INSTALLED_APPS = [
 
 ]
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.cache.UpdateCacheMiddleware',
+MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
-)
+]
+
+if CACHING:
+    MIDDLEWARE_CLASSES = ['django.middleware.cache.UpdateCacheMiddleware'] + MIDDLEWARE_CLASSES + ['django.middleware.cache.FetchFromCacheMiddleware']
+
+
+
 
 ROOT_URLCONF = 'black_space.urls'
 
