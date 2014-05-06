@@ -5,7 +5,7 @@
     <h6>Author - {{post.author}}</h6>
     <div>
         {% autoescape off %}
-        {{post.post}}
+        {{post.markdown_post}}
         {% endautoescape %}
     </div>
 </div>

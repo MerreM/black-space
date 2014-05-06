@@ -16,7 +16,9 @@
                     </h5> <h6>by {{post.author}}</h6>
                 </div>
                 <div class="panel-body">
-                    {{post.post | truncatewords:15 }} (contd.)
+                    {% autoescape off %}
+                    {{post.markdown_post | truncatewords:15 }} (contd.)
+                    {% endautoescape %}
                 </div>
             </div>
             {% endfor %}

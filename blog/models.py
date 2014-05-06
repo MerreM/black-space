@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+import markdown
 
 class Catergory(models.Model):
     name = models.CharField(max_length=256)
@@ -18,6 +19,9 @@ class Post(models.Model):
     catergories = models.ManyToManyField(Catergory)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
+    def markdown_post(self):
+        return markdown.markdown(self.post)
 
     def __unicode__(self):
         return u'%s by %s (%s)' %(self.title,self.author,self.created)
