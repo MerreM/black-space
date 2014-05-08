@@ -10,10 +10,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a href="{% url 'blog:post' catergory=catergory.name slug=post.slug %}">
-                    {{post.title}} by {{post.author}}
+                    {{post.title}} 
                     </a>
                     <br/>
+                    <span class="label label-default">{{post.author}}</span> 
+                    <br/>
                     {{post.created}}
+                    {% if not post.published %}
+                        <span class="label label-danger">Unpublished</span>
+                    {% endif %}
                 </div>
                 <div class="panel-body">
                     {% autoescape off %}

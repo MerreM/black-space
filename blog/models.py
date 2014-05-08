@@ -17,6 +17,7 @@ class Post(models.Model):
     slug = models.SlugField()
     post = models.TextField()
     catergories = models.ManyToManyField(Catergory)
+    published = models.BooleanField()
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
