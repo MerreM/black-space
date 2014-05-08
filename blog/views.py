@@ -8,7 +8,7 @@ from blog.models import Post
 # Create your views here.
 def catergory(request,catergory):
     found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
-    posts = Post.objects.filter(catergories__in=[found_catergory])
+    posts = Post.objects.filter(catergories__in=[found_catergory]).order_by("-created")
     context = {
         "catergory":found_catergory,
         "posts":posts,
