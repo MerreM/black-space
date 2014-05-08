@@ -27,3 +27,6 @@ class Post(models.Model):
     def __unicode__(self):
         return u'%s by %s (%s)' %(self.title,self.author,self.created)
 
+    class Meta:
+        get_latest_by = 'created'
+
