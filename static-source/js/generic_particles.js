@@ -17,7 +17,13 @@ function create_experiment(options){
     var FRICTION = 0.8;
     var POLY_COUNT = 5;
     var ALPHA = 0.5;
-    var ICON = true;
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    var icon_bool = getRandomInt(0,2);
+    console.log(icon_bool)
+    var ICON = (icon_bool == 0 ? true : false);
+    var RECT = (icon_bool == 1 ? true : false);
 
     var imageObj = new Image();
 
