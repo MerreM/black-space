@@ -1,4 +1,4 @@
-Django==1.6.3
+Django==1.6.5
 Markdown==2.4
 Pillow==2.3.0
 SQLAlchemy==0.9.3
@@ -21,6 +21,7 @@ django-reversion==1.8.0
 futures==2.1.6
 kombu==3.0.12
 oauthlib==0.6.1
+psycopg2==2.5.2
 pygraphviz==1.2
 pylibmc==1.2.3
 python-memcached==1.53
