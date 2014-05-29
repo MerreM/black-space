@@ -14,7 +14,7 @@ def about_me(request):
 def writing(request):
     parent_cats = Catergory.objects.filter(visible=True,parent=None)
     context = {
-    "parent_cats":parent_cats,
+        "parent_cats":parent_cats,
     }
     return render(request,"projects.html",context)
 

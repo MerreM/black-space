@@ -10,6 +10,9 @@ class Catergory(models.Model):
     def __unicode__(self):
         return u'%s'%self.name
 
+    class Meta:
+        ordering = ["id"]
+
 
 class Post(models.Model):
     author = models.ForeignKey(User)
