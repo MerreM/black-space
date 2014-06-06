@@ -26,6 +26,12 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/main.min.js',
     },
+    'playful': {
+        'source_filenames': (
+          'js/playfuljs.js',
+        ),
+        'output_filename': 'js/playful.min.js',
+    },
     'canvas': {
         'source_filenames': (
           'js/canvas.js',
