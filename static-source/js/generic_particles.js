@@ -21,7 +21,6 @@ function create_experiment(options){
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     var icon_bool = getRandomInt(0,2);
-    console.log(icon_bool)
     var ICON = (icon_bool == 0 ? true : false);
     var RECT = (icon_bool == 1 ? true : false);
 
