@@ -16,19 +16,22 @@
         </canvas>
     </div>
 
-    {% comment %}
     <h5>Latest post</h5>
     <hr/>
     <div>
-        <h2>{{latest_post.title}}</h2>
+        
+        <h2>
+            <a href="{% url 'blog:post' catergory=latest_post.catergories.all.0 slug=latest_post.slug %}">
+                {{latest_post.title}}
+            </a>
+        </h2>
         <h6>Author - {{latest_post.author}}</h6>
         <div>
             {% autoescape off %}
-            {{latest_post.markdown_post}}
+            {{latest_post.markdown_post |truncatewords:50 }} <a href="{% url 'blog:post' catergory=latest_post.catergories.all.0 slug=latest_post.slug %}">(contd.)</a>
             {% endautoescape %}
         </div>
     </div>
-    {% endcomment %}
 
 </div>
 {% endblock %}
