@@ -4,7 +4,7 @@
   font-family: 'Maven Pro';
   font-style: normal;
   font-weight: 400;
-  src: local('Maven Pro Regular'), local('MavenProRegular'), url(http://themes.googleusercontent.com/static/fonts/mavenpro/v5/MG9KbUZFchDs94Tbv9U-pT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+  src: local('Maven Pro Regular'), local('MavenProRegular'), url(https://themes.googleusercontent.com/static/fonts/mavenpro/v5/MG9KbUZFchDs94Tbv9U-pT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
 
 html {
