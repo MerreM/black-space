@@ -19,4 +19,4 @@ def writing(request):
     return render(request,"projects.html",context)
 
 def canvas(request):
-    return render(request,"canvas.html",{})    
+    return render(request,"canvas.html",{})

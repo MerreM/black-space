@@ -5,17 +5,14 @@
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Home</a>
         </li>
-
         {% url "mainsite:canvas" as current %}
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Canvas</a>
         </li>
-
         {% url "mainsite:writing" as current %}
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Writing</a>
         </li>
-
         {% url "mainsite:about_me" as current %}
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">About Me</a>
