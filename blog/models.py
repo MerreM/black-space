@@ -5,14 +5,14 @@ import markdown
 
 class Catergory(models.Model):
     name = models.CharField(max_length=256)
-    visible = models.BooleanField()
+    visible = models.BooleanField(default=False)
     parent = models.ForeignKey('self',blank=True,null=True)
+
     def __unicode__(self):
         return u'%s'%self.name
 
     class Meta:
         ordering = ["id"]
-
 
 class Post(models.Model):
     author = models.ForeignKey(User)
@@ -20,7 +20,7 @@ class Post(models.Model):
     slug = models.SlugField()
     post = models.TextField()
     catergories = models.ManyToManyField(Catergory)
-    published = models.BooleanField()
+    published = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 

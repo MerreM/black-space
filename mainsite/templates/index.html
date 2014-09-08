@@ -13,10 +13,10 @@
     <div>
         <canvas id="playful" height="500px;"></canvas>
     </div>
+    {% if latest_post %}
     <h1>Latest post</h1>
     <hr/>
-    <div>
-        
+    <div>        
         <h2>
             <a href="{% url 'blog:post' catergory=latest_post.catergories.all.0 slug=latest_post.slug %}">
                 {{latest_post.title}}
@@ -29,6 +29,7 @@
             {% endautoescape %}
         </div>
     </div>
+    {% endif %}
 </div>
 {% endblock %}
 {% block main_js %}
