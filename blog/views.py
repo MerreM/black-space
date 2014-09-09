@@ -24,7 +24,9 @@ def tags(request,tags):
     for tag in split_tags:
         query = query | Q(tag__icontains=tag)
     tags = Tag.objects.filter(query)
-    posts=Post.objects.filter(tags__in=tags)
+    posts = Post.objects.filter(tags__in=tags,published=False).order_by("-created")
+    if request.user.is_staff:
+        posts = Post.objects.filter(tags__in=tags).order_by("-created")
     context = {
         "posts":posts,
         "tags":tags,
