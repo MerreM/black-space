@@ -11,7 +11,10 @@
         <ul class="nav nav-tabs nav-justified">
         {% for catergory in parent_cats %}
             <li>
-            <a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a>
+                <a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a>
+                <ul>
+                    <li>{{catergory.post_set.latest.title}}</li>
+                </ul>
             </li>
         {% endfor %}
         </ul>

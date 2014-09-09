@@ -6,7 +6,15 @@ from blog.models import Catergory
 from blog.models import Post
 from blog.models import Tag
 
-# Create your views here.
+def writing(request):
+    parent_cats = Catergory.objects.filter(visible=True,parent=None)
+    context = {
+        "parent_cats":parent_cats,
+    }
+    catergory = parent_cats[0]
+    print catergory.post_set.latest()
+    return render(request,"writing.html",context)
+
 def catergory(request,catergory):
     found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
     posts = Post.objects.filter(catergories__in=[found_catergory],published=True).order_by("-created")

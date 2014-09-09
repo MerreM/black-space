@@ -1,0 +1,405 @@
+Not Found: /about_me/
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /writing/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mike/Projects/black-space/blackspace/mainsite/views.py", line 22, in writing
+    return render(request,"projects.html",context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/shortcuts.py", line 48, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 178, in render_to_string
+    return t.render(context_instance)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return template.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 444, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=context.current_app)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 517, in reverse
+    app_list = resolver.app_dict[ns]
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 329, in app_dict
+    self._populate()
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 303, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 231, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 104, in get_callable
+    (lookup_view, mod_name))
+ViewDoesNotExist: Could not import django.views.generic.simple.redirect_to. Parent module django.views.generic.simple does not exist.
+Not Found: /favicon.ico
+Not Found: /words/fiction/xan/
+Not Found: /words/fiction/xan/
+Not Found: /words/fiction/xan/
+Not Found: /words/fiction/xan/
+Not Found: /favicon.ico
+Not Found: /words/fiction/js/vendor/jquery-1.10.2.min.js
+Not Found: /favicon.ico
+Not Found: /words/fiction/js/vendor/jquery-1.10.2.min.js
+Not Found: /favicon.ico
+Not Found: /words/fiction/js/vendor/jquery-1.10.2.min.js
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /words/fiction/js/vendor/jquery-1.10.2.min.js
+Not Found: /favicon.ico
+Not Found: /words/fiction/js/vendor/jquery-1.10.2.min.js
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /words/fiction/
+Not Found: /words/fiction/
+Not Found: /words/fiction/
+Not Found: /favicon.ico
+Internal Server Error: /writing/tags/bals/and/france/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 130, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view blog.views.tags didn't return an HttpResponse object. It returned None instead.
+Internal Server Error: /writing/tags/bals/and/france/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 130, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view blog.views.tags didn't return an HttpResponse object. It returned None instead.
+Internal Server Error: /writing/tags/bals/and/france/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 130, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view blog.views.tags didn't return an HttpResponse object. It returned None instead.
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 130, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view blog.views.tags didn't return an HttpResponse object. It returned None instead.
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 204, in get_response
+    response = middleware_method(request, response)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/middleware/gzip.py", line 17, in process_response
+    if not response.streaming and len(response.content) < 200:
+AttributeError: 'QuerySet' object has no attribute 'streaming'
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 130, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view blog.views.tags didn't return an HttpResponse object. It returned None instead.
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 28, in tags
+    return render(request,"tags.html",context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/shortcuts.py", line 48, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 170, in render_to_string
+    t = get_template(template_name, dirs)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 144, in get_template
+    template, origin = find_template(template_name, dirs)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 136, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: tags.html
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 28, in tags
+    return render(request,"tags.html",context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/shortcuts.py", line 48, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 178, in render_to_string
+    return t.render(context_instance)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 201, in render
+    nodelist.append(node.render(context))
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 458, in render
+    six.reraise(*exc_info)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 444, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=context.current_app)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 546, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 463, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'post' with arguments '()' and keyword arguments '{u'catergory': '', u'slug': u'xan'}' not found. 1 pattern(s) tried: [u'writing/(?P<catergory>\\w+)/(?P<slug>[-\\w]+)/$']
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 28, in tags
+    return render(request,"tags.html",context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/shortcuts.py", line 48, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 178, in render_to_string
+    return t.render(context_instance)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 148, in render
+    return self._render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 126, in render
+    return compiled_parent._render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 142, in _render
+    return self.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 844, in render
+    bit = self.render_node(node, context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/debug.py", line 80, in render_node
+    return node.render(context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 201, in render
+    nodelist.append(node.render(context))
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 458, in render
+    six.reraise(*exc_info)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 444, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=context.current_app)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 546, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 463, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+NoReverseMatch: Reverse for 'post' with arguments '()' and keyword arguments '{u'catergory': '', u'slug': u'xan'}' not found. 1 pattern(s) tried: [u'writing/(?P<catergory>\\w+)/(?P<slug>[-\\w]+)/$']
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 224, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 231, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 27
+    posts=Post.objects.filter(tags__in=tags))
+                                            ^
+SyntaxError: invalid syntax
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 224, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 231, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 27
+    posts=Post.objects.filter(tags__in=tags))
+                                            ^
+SyntaxError: invalid syntax
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 224, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 231, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 27
+    posts=Post.objects.filter(tags__in=tags))
+                                            ^
+SyntaxError: invalid syntax
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 224, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 231, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 27
+    posts=Post.objects.filter(tags__in=tags))
+                                            ^
+SyntaxError: invalid syntax
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 224, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 231, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 27
+    posts=Post.objects.filter(tags__in=tags))
+                                            ^
+SyntaxError: invalid syntax
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 98, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 340, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 224, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 231, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/utils/lru_cache.py", line 101, in wrapper
+    result = user_function(*args, **kwds)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 27
+    posts=Post.objects.filter(tags__in=tags))
+                                            ^
+SyntaxError: invalid syntax
+Internal Server Error: /writing/tags/bals/and/fiction/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 32, in tags
+    return render(request,"tags.html",context)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/shortcuts.py", line 48, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 170, in render_to_string
+    t = get_template(template_name, dirs)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 144, in get_template
+    template, origin = find_template(template_name, dirs)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 132, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 44, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 50, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 132, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 162, in compile_string
+    return parser.parse()
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 201, in do_extends
+    nodelist = parser.parse()
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/loader_tags.py", line 175, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 290, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/defaulttags.py", line 833, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 288, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/template/base.py", line 343, in invalid_block_tag
+    (command, get_text_list(["'%s'" % p for p in parse_until])))
+TemplateSyntaxError: Invalid block tag: 'endblock', expected 'empty' or 'endfor'
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /writing/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 14, in writing
+    print parent_cats[0].posts
+AttributeError: 'Catergory' object has no attribute 'posts'
+Internal Server Error: /writing/
+Traceback (most recent call last):
+  File "/home/mike/.virtualenvs/black-space/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 111, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mike/Projects/black-space/blackspace/blog/views.py", line 15, in writing
+    print catergory.posts
+AttributeError: 'Catergory' object has no attribute 'posts'
