@@ -9,7 +9,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>
-                    <a href="{% url 'blog:post' catergory=post.catergories.all.first.name slug=post.slug %}">
+                    <a href="{% url 'blog:post' catergory=post.public_catergories.all.first.name slug=post.slug %}">
                     {{post.title}} 
                     </a>
                 </h4>
