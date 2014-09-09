@@ -14,12 +14,19 @@ class Catergory(models.Model):
     class Meta:
         ordering = ["id"]
 
+class Tag(models.Model):
+    tag = models.CharField(max_length=64)
+
+    def __unicode__(self):
+        return u"%s"%self.tag
+
 class Post(models.Model):
     author = models.ForeignKey(User)
     title = models.CharField(max_length=256)
     slug = models.SlugField()
     post = models.TextField()
     catergories = models.ManyToManyField(Catergory)
+    tags = models.ManyToManyField(Tag)
     published = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -32,4 +39,5 @@ class Post(models.Model):
 
     class Meta:
         get_latest_by = 'created'
+
 

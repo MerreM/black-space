@@ -5,8 +5,7 @@ from blog.models import Post
 def home(request):
     try:
         latest_post = Post.objects.filter(catergories__in=Catergory.objects.filter(visible=True,parent=None)).filter(published=True).latest()
-    except Post.DoesNotExist as e:
-        print e
+    except Post.DoesNotExist:
         latest_post = None
     return render(request,"index.html",{
         "latest_post":latest_post
