@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-
+from django.db.models import Q
 
 from blog.models import Catergory
 from blog.models import Post
+from blog.models import Tag
 
 # Create your views here.
 def catergory(request,catergory):
@@ -16,6 +17,21 @@ def catergory(request,catergory):
         "posts":posts,
     }
     return render(request,"catergory.html",context)
+
+def tags(request,tags):
+    split_tags = tags.split("/")
+    query = Q()
+    for tag in split_tags:
+        query = query | Q(tag__icontains=tag)
+    tags = Tag.objects.filter(query)
+    posts=Post.objects.filter(tags__in=tags)
+    context = {
+        "posts":posts,
+        "tags":tags,
+        }
+    return render(request,"tags.html",context)
+
+
 
 def post(request,catergory=None,slug=None):
     found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
