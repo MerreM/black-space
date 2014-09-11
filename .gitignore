@@ -37,3 +37,6 @@ nosetests.xml
 */migrations/*
 local.py
 */venv/*
+
+
+debug.log
