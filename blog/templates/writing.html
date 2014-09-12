@@ -8,14 +8,21 @@
         <p>Or for that matter than anyone but me will ever read it.</p>
     </div>
     <div>
-        <ul class="nav nav-tabs nav-justified">
-        {% for catergory in parent_cats %}
-            <li>
-                <a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a>
-                <ul>
-                    <li>{{catergory.post_set.latest.title}}</li>
-                </ul>
-            </li>
+        {% for catergory,post_list in posts.items %}
+            <div class="col-md-12 well">
+                <div class="col-md-6">
+                    <h2><a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a></h2>
+                </div>
+                {% for post in post_list %}
+                <div class="col-md-6">
+                    <a href="{%url 'blog:post' catergory=catergory.name slug=post.slug %}">{{post.title}}</a>
+                </div>
+                {% empty %}
+              <div class="col-md-6">
+                    ...
+                </div>
+                {%endfor%}
+            </div>
         {% endfor %}
         </ul>
     </div>

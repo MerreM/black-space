@@ -8,11 +8,13 @@ from blog.models import Tag
 
 def writing(request):
     parent_cats = Catergory.objects.filter(visible=True,parent=None)
+    posts = {}
+    for cat in parent_cats:
+        posts[cat]=cat.post_set.all()[:3]
     context = {
+        "posts":posts,
         "parent_cats":parent_cats,
     }
-    catergory = parent_cats[0]
-    print catergory.post_set.latest()
     return render(request,"writing.html",context)
 
 def catergory(request,catergory):
