@@ -171,3 +171,25 @@ body {
        -o-transform: translateZ( -100px ) rotateX(   90deg );
           transform: translateZ( -100px ) rotateX(   90deg );
 }
+
+/*MIkes 3d Text bit*/
+
+.text-side{
+  display: block;
+  position: absolute;
+  /*border: 2px solid black;*/
+}
+
+.animo-test {
+  width: 100%;
+  height: 500px;
+  /*position: absolute;*/
+  -webkit-transform-style: preserve-3d;
+     -moz-transform-style: preserve-3d;
+       -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+     -moz-transition: -moz-transform 1s;
+       -o-transition: -o-transform 1s;
+          transition: transform 1s;
+}

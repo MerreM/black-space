@@ -15,6 +15,15 @@ PIPELINE_CSS = {
             'media': 'screen,projection',
         },
     },
+    'animo': {
+        'source_filenames': (
+            'css/animate_animo.css',
+        ),
+        'output_filename': 'css/c.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
+    },
 }
 
 PIPELINE_JS = {
@@ -25,6 +34,15 @@ PIPELINE_JS = {
           'js/experiment_*.js',
         ),
         'output_filename': 'js/main.min.js',
+    },
+    'animo': {
+        'source_filenames': (
+            'js/animo.js',
+        ),
+        'output_filename': 'js/c.js',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
     },
     'playful': {
         'source_filenames': (

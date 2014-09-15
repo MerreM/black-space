@@ -5,11 +5,11 @@ function fitToContainer(canvas){
   canvas.width  = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
 }
+
 function init_box(){
     var box = $('#box');
     var showPanelButtons = $('#show-buttons button');
     var panelClassName = 'show-front';
-    console.log(box)
 
     function onButtonClick( event ){
         box.removeClass( panelClassName );
@@ -17,12 +17,11 @@ function init_box(){
         box.addClass( panelClassName );
     };
 
-    for (var i=0, len = showPanelButtons.length; i < len; i++) {
-        console.log($(showPanelButtons[i]));
+    for (var i=0; i < showPanelButtons.length; i++) {
         $(showPanelButtons[i]).on('click',onButtonClick);
     }
-  
     $('#toggle-backface-visibility').on( 'click', function(){
         box.toggleClass('panels-backface-invisible');
-    }, false);
+    });
 }
+// $("#side-1").animo("rotate" [,function]);
