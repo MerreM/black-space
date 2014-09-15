@@ -20,9 +20,6 @@ PIPELINE_CSS = {
             'css/animate_animo.css',
         ),
         'output_filename': 'css/c.css',
-        'extra_context': {
-            'media': 'screen,projection',
-        },
     },
 }
 
@@ -40,9 +37,6 @@ PIPELINE_JS = {
             'js/animo.js',
         ),
         'output_filename': 'js/c.js',
-        'extra_context': {
-            'media': 'screen,projection',
-        },
     },
     'playful': {
         'source_filenames': (

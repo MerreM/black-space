@@ -24,4 +24,5 @@ function init_box(){
         box.toggleClass('panels-backface-invisible');
     });
 }
-// $("#side-1").animo("rotate" [,function]);
+
+$(".latest_post").animo('blur', {duration: 3, amount: 15});

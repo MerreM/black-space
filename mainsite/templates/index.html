@@ -16,14 +16,14 @@
     {% if latest_post %}
     <h1>Latest post</h1>
     <hr/>
-    <div>        
+    <div class="latest_post">        
         <h2>
             <a href="{% url 'blog:post' catergory=latest_post.catergories.all.0 slug=latest_post.slug %}">
                 {{latest_post.title}}
             </a>
         </h2>
         <h6>Author - {{latest_post.author}}</h6>
-        <div>
+        <div class="snippit">
             {% autoescape off %}
             {{latest_post.markdown_post |truncatewords:50 }} <a href="{% url 'blog:post' catergory=latest_post.catergories.all.0 slug=latest_post.slug %}">(contd.)</a>
             {% endautoescape %}
@@ -33,6 +33,6 @@
 </div>
 {% endblock %}
 {% block main_js %}
-{% compressed_js 'main' %}
+{{ block.super }}
 {% compressed_js 'playful' %}
 {% endblock %}

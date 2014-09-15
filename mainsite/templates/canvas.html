@@ -2,45 +2,7 @@
 {% load compressed %}{% load staticfiles %}{% load webdesign %}
 {% block 'after-head' %}{% compressed_css 'animo' %}{% endblock %}
 {% block 'content' %}
-<h4>Experiment 1</h4>
-<div class="fill">
-    <canvas id="main_canvas" width="400px" height="400px"></canvas>
-</div>
-<hr/>
-<h4>Experiment 2</h4>
-<div class="fill">
-    <img src="/static/img/Ad14rG4.png" alt="Authority" width="400px">
-</div>
-</hr>
-<h4>Experiment 3</h4>
-<div class="fill">
-      <section class="box_container">
-        <div id="box" class="show-front">
-          <figure class="front">1</figure>
-          <figure class="back">2</figure>
-          <figure class="right">3</figure>
-          <figure class="left">4</figure>
-          <figure class="top">5</figure>
-          <figure class="bottom">6</figure>
-        </div>
-      </section>
-</div>
-</hr>
-<section id="options">
-    <p id="show-buttons">
-      <button class="btn btn-default show-front">Show 1</button>
-      <button class="btn btn-default show-back">Show 2</button>
-      <button class="btn btn-default show-right">Show 3</button>
-      <button class="btn btn-default show-left">Show 4</button>
-      <button class="btn btn-default show-top">Show 5</button>
-      <button class="btn btn-default show-bottom">Show 6</button>
-    </p>
-    <p>
-      <button class="btn btn-default" id="toggle-backface-visibility">Toggle Backface Visibility</button>
-    </p>
-</section>
-
-<h4>Expirement 4 - Animo </h4>
+<h4>Expirement 3 - Animo </h4>
 <div class="animo-test">
   <div class="text-side" id="side-1">
     {% lorem 1 p %}
@@ -55,12 +17,26 @@
     {% lorem 1 p random %}
   </div>
 </div>
+<hr/>
+<h4>Experiment 2</h4>
+<div class="fill">
+    <img src="/static/img/Ad14rG4.png" alt="Authority" width="400px">
+</div>
+<hr/>
+<h4>Experiment 1</h4>
+<div class="fill">
+    <canvas id="main_canvas" width="400px" height="400px"></canvas>
+</div>
+<hr/>
 {% endblock %}
 {% block experiment %}
 {% endblock %}
-{% block 'main_js' %}
-{% compressed_js 'canvas' %}
-{% compressed_js 'animo' %}
+{% block main_js %}
 {% compressed_js 'main' %}
-<script type="text/javascript">init_box();</script>
+{% compressed_js 'animo' %}
+{% compressed_js 'canvas' %}
+<script type="text/javascript">
+  init_box();
+  // Specifying options
+</script>
 {% endblock %}
