@@ -1,5 +1,5 @@
 
-var DAMPING = 0.999;
+var DAMPING = 1;
 
 function fitToContainer(canvas){
   canvas.style.width='100%';
@@ -28,14 +28,31 @@ Particle.prototype.attract = function(x, y) {
   // dx+=Math.random();
   // dy+=Math.random();
   var distance = Math.sqrt(dx * dx + dy * dy);
-  // distance+=Math.random();
+  distance+=Math.random();
   this.x += dx / distance;
   this.y += dy / distance;
 };
 
+function byte2Hex(n){
+    var nybHexString = "0123456789ABCDEF";
+    return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
+}
+
+function RGB2Color(r,g,b){
+    return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
+}
+
+function changeColour(i){
+    frequency = 0.1;
+    red   = Math.sin(frequency*i + 0) * 127 + 128;
+    green = Math.sin(frequency*i + 2*Math.PI/3) * 127 + 128;
+    blue  = Math.sin(frequency*i + 4*Math.PI/3) * 127 + 128;
+    return RGB2Color(red,green,blue);
+}
+
 Particle.prototype.draw = function() {
-  ctx.strokeStyle = '#ffffff';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = changeColour(count);
+  ctx.lineWidth = 5;
   ctx.beginPath();
   ctx.moveTo(this.oldX, this.oldY);
   ctx.lineTo(this.x, this.y);
@@ -70,6 +87,8 @@ function onMousemove(e) {
 
 requestAnimationFrame(frame);
 
+var count = 0;
+
 function frame() {
   requestAnimationFrame(frame);
   ctx.clearRect(0, 0, width, height);
@@ -77,5 +96,6 @@ function frame() {
     particles[i].attract(mouse.x, mouse.y);
     particles[i].integrate();
     particles[i].draw();
+    count++;
   }
 }
