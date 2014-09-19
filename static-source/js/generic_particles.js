@@ -59,8 +59,6 @@ function create_experiment(options){
 
     function dObject(){
         this.init = function(){
-            this.x_pos = (Math.random()*MAX_X);
-            this.y_pos = (Math.random()*MAX_Y);
             this.x_speed=(Math.random()*10)-5;
             this.y_speed=(Math.random()*10)-5;
             this.alive = false;
@@ -74,14 +72,16 @@ function create_experiment(options){
             this.width = 10;
             this.height = 10;
             this.size = (Math.random()+3.5);
+            this.x_pos = (Math.random()*(MAX_X-this.width*this.size));
+            this.y_pos = (Math.random()*(MAX_Y-this.height*this.size));
         }
-        this.init();
         this.get_height = function(){
             return this.height*this.size;
         }
         this.get_width = function(){
             return this.width*this.size;
         }
+        this.init();
         this.draw = function(){
             this.colour=changeColour(this.count);
             this.count++;

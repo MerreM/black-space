@@ -97,5 +97,8 @@ function frame() {
     particles[i].integrate();
     particles[i].draw();
     count++;
+    if (count>100000){
+      count = 0;
+    }
   }
 }
