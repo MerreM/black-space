@@ -102,3 +102,9 @@ function frame() {
     }
   }
 }
+
+$("#playful").on("click",function(){
+  for (var i = 0; i < 200; i++) {
+    particles[i] = new Particle(Math.random() * width, Math.random() * height);
+  }
+});
