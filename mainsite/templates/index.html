@@ -1,4 +1,11 @@
 {% extends "base.html" %}{% load compressed %}
+{% block 'header' %}
+{{block.super}}
+<div>
+    <canvas id="playful" height="500px;"></canvas>
+</div>
+<hr/>
+{% endblock %}
 {% block 'content' %}
 <div>
     <h2>Hello...</h2>
@@ -10,9 +17,7 @@
         <p>Cheers to <a href="http://www.playfuljs.com/">playfuljs</a> for ideas/code!</p>
     </div>
     <hr/>
-    <div>
-        <canvas id="playful" height="500px;"></canvas>
-    </div>
+
     {% if latest_post %}
     <h1>Latest post</h1>
     <hr/>
