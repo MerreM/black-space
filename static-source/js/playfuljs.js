@@ -50,8 +50,8 @@ function changeColour(i){
     return RGB2Color(red,green,blue);
 }
 
-Particle.prototype.draw = function() {
-  ctx.strokeStyle = changeColour(count);
+Particle.prototype.draw = function(i) {
+  ctx.strokeStyle = changeColour(i);
   ctx.lineWidth = 5;
   ctx.beginPath();
   ctx.moveTo(this.oldX, this.oldY);
@@ -88,6 +88,7 @@ function onMousemove(e) {
 requestAnimationFrame(frame);
 
 var count = 0;
+var mode = true;
 
 function frame() {
   requestAnimationFrame(frame);
@@ -95,16 +96,23 @@ function frame() {
   for (var i = 0; i < particles.length; i++) {
     particles[i].attract(mouse.x, mouse.y);
     particles[i].integrate();
-    particles[i].draw();
-    count++;
+    particles[i].draw(count);
     if (count>100000){
       count = 0;
     }
+    if (mode==true){
+      count++;
+    }
+  }
+  if(mode==false){
+    count++;
   }
 }
 
 $("#playful").on("click",function(){
   for (var i = 0; i < 200; i++) {
     particles[i] = new Particle(Math.random() * width, Math.random() * height);
+    console.log(mode);
   }
+  mode = !mode;
 });
