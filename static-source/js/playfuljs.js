@@ -41,9 +41,9 @@ function byte2Hex(n){
 function RGB2Color(r,g,b){
     return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
 }
-
+var frequency = 1;
 function changeColour(i){
-    frequency = 0.1;
+
     red   = Math.sin(frequency*i + 0) * 127 + 128;
     green = Math.sin(frequency*i + 2*Math.PI/3) * 127 + 128;
     blue  = Math.sin(frequency*i + 4*Math.PI/3) * 127 + 128;
@@ -89,30 +89,50 @@ requestAnimationFrame(frame);
 
 var count = 0;
 var mode = true;
+var animate = true;
 
 function frame() {
-  requestAnimationFrame(frame);
-  ctx.clearRect(0, 0, width, height);
-  for (var i = 0; i < particles.length; i++) {
-    particles[i].attract(mouse.x, mouse.y);
-    particles[i].integrate();
-    particles[i].draw(count);
-    if (count>100000){
-      count = 0;
+    requestAnimationFrame(frame);
+  if(animate){
+    ctx.clearRect(0, 0, width, height);
+    for (var i = 0; i < particles.length; i++) {
+      particles[i].attract(mouse.x, mouse.y);
+      particles[i].integrate();
+      particles[i].draw(count);
+      if (count>100000){
+        count = 0;
+      }
+      if (mode==true){
+        count++;
+      }
     }
-    if (mode==true){
+    if(mode==false){
       count++;
     }
-  }
-  if(mode==false){
-    count++;
   }
 }
 
 $("#playful").on("click",function(){
   for (var i = 0; i < 200; i++) {
     particles[i] = new Particle(Math.random() * width, Math.random() * height);
-    console.log(mode);
   }
   mode = !mode;
+});
+$(document).ready(function(){
+  $("#frequency-control").text("Frequency "+frequency.toFixed(2));
+  $(document).keyup(function(evt) {
+    // if (evt.keyCode == 32) {
+      // animate = !animate;
+    // }
+  }).keydown(function(evt) {
+    if (evt.keyCode == 80) {
+      animate = !animate;
+    } else if (evt.keyCode==37){
+      frequency-=0.1;
+      $("#frequency-control").text("Frequency "+frequency.toFixed(2));
+    } else if (evt.keyCode==39){
+      frequency+=0.1;
+      $("#frequency-control").text("Frequency "+frequency.toFixed(2));
+    }
+  })
 });
