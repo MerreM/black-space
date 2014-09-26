@@ -90,11 +90,13 @@ requestAnimationFrame(frame);
 var count = 0;
 var mode = true;
 var animate = true;
-
+var ALPHA = 0.5;
 function frame() {
     requestAnimationFrame(frame);
   if(animate){
-    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = "rgba(35, 35, 35, "+ALPHA+")"
+    ctx.fillRect(0,0,width,height);
+    // ctx.clearRect(0, 0, width, height);
     for (var i = 0; i < particles.length; i++) {
       particles[i].attract(mouse.x, mouse.y);
       particles[i].integrate();
@@ -120,11 +122,9 @@ $("#playful").on("click",function(){
 });
 $(document).ready(function(){
   $("#frequency-control").text("Frequency "+frequency.toFixed(2));
-  $(document).keyup(function(evt) {
-    // if (evt.keyCode == 32) {
-      // animate = !animate;
-    // }
-  }).keydown(function(evt) {
+  $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
+  $(document).keydown(function(evt) {
+    console.log(evt.keyCode);
     if (evt.keyCode == 80) {
       animate = !animate;
     } else if (evt.keyCode==37){
@@ -133,6 +133,12 @@ $(document).ready(function(){
     } else if (evt.keyCode==39){
       frequency+=0.1;
       $("#frequency-control").text("Frequency "+frequency.toFixed(2));
+    } else if (evt.keyCode==221){
+      ALPHA+=0.1;
+      $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
+    } else if (evt.keyCode==219){
+      ALPHA-=0.1;
+      $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
     }
   })
 });
