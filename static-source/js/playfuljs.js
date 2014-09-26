@@ -70,14 +70,6 @@ display.width  = display.offsetWidth;
 display.height = display.offsetHeight;
 
 
-var width = display.width = window.innerWidth;
-var height = display.height = window.innerHeight;
-var mouse = { x: width * 0.5, y: height * 0.5 };
-
-for (var i = 0; i < 200; i++) {
-  particles[i] = new Particle(Math.random() * width, Math.random() * height);
-}
-
 display.addEventListener('mousemove', onMousemove);
 
 function onMousemove(e) {
@@ -92,7 +84,14 @@ var count = 0;
 var mode = false;
 var animate = true;
 var ALPHA = 0.2;
+var ParticleCount = 1000;
+var width = display.width = window.innerWidth;
+var height = display.height = window.innerHeight;
+var mouse = { x: width * 0.5, y: height * 0.5 };
 
+for (var i = 0; i < ParticleCount; i++) {
+  particles[i] = new Particle(Math.random() * width, Math.random() * height);
+}
 function frame() {
     requestAnimationFrame(frame);
   if(animate){
@@ -117,7 +116,7 @@ function frame() {
 }
 
 $("#playful").on("click",function(){
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < ParticleCount; i++) {
     particles[i] = new Particle(Math.random() * width, Math.random() * height);
   }
   mode = !mode;
