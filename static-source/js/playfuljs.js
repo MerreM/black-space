@@ -125,7 +125,6 @@ $(document).ready(function(){
   $("#frequency-control").text("Frequency "+frequency.toFixed(2));
   $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
   $(document).keydown(function(evt) {
-    console.log(evt.keyCode);
     if (evt.keyCode == 80) {
       animate = !animate;
     } else if (evt.keyCode==37){
