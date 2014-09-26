@@ -41,7 +41,7 @@ function byte2Hex(n){
 function RGB2Color(r,g,b){
     return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
 }
-var frequency = 1;
+
 function changeColour(i){
 
     red   = Math.sin(frequency*i + 0) * 127 + 128;
@@ -87,10 +87,12 @@ function onMousemove(e) {
 
 requestAnimationFrame(frame);
 
+var frequency = 0.2;
 var count = 0;
-var mode = true;
+var mode = false;
 var animate = true;
-var ALPHA = 0.5;
+var ALPHA = 0.2;
+
 function frame() {
     requestAnimationFrame(frame);
   if(animate){
