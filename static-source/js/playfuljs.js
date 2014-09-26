@@ -94,7 +94,7 @@ var ALPHA = 0.5;
 function frame() {
     requestAnimationFrame(frame);
   if(animate){
-    ctx.fillStyle = "rgba(35, 35, 35, "+ALPHA+")"
+    ctx.fillStyle = "rgba(35, 35, 35, "+ALPHA.toFixed(2)+")"
     ctx.fillRect(0,0,width,height);
     // ctx.clearRect(0, 0, width, height);
     for (var i = 0; i < particles.length; i++) {
