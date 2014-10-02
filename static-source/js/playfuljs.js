@@ -9,6 +9,7 @@ function fitToContainer(canvas){
 }
 
 function Particle(x, y) {
+  this.phase = 0+Math.random()*100;
   this.x = this.oldX = x;
   this.y = this.oldY = y;
 }
@@ -51,12 +52,20 @@ function changeColour(i){
 }
 
 Particle.prototype.draw = function(i) {
-  ctx.strokeStyle = changeColour(i);
+  if(i!=null){
+    ctx.strokeStyle = changeColour(i);
+  } else {
+    ctx.strokeStyle = changeColour(this.phase);
+  }
   ctx.lineWidth = 5;
   ctx.beginPath();
   ctx.moveTo(this.oldX, this.oldY);
   ctx.lineTo(this.x, this.y);
   ctx.stroke();
+  this.phase+=frequency
+  if(this.phase>10000){
+    this.phase=0;
+  }
 };
 
 var display = document.getElementById('playful');
@@ -101,17 +110,16 @@ function frame() {
     for (var i = 0; i < particles.length; i++) {
       particles[i].attract(mouse.x, mouse.y);
       particles[i].integrate();
-      particles[i].draw(count);
+      if(mode===true){
+        particles[i].draw(count);
+      } else {
+        particles[i].draw();
+      }
       if (count>100000){
         count = 0;
       }
-      if (mode==true){
-        count++;
-      }
     }
-    if(mode==false){
-      count++;
-    }
+    count++;
   }
 }
 
