@@ -332,3 +332,24 @@ function SYMBOL(){
     this.run(contents);
 }
 var run_me = new SYMBOL();
+
+  init_box();
+  // Specifying options
+  var index = 0;
+  var MAX = $(".text-side").length
+  $(".text-side").hide();
+  function showNext(){
+    var prev = $(".text-side")[index];
+    index++;
+    if(index>=MAX){
+      index=0;
+    }
+    var next = $(".text-side")[index];
+    $(prev).animo({ animation:'flipOutY',duration:1,keep:false}, function(e) {
+      $(prev).hide();
+      $(next).show();
+      $(next).animo({ animation:'flipInY', duration:1, keep:false});
+    });
+  }
+  $(".text-side").on("click",showNext);
+  $(".text-side").first().show();
