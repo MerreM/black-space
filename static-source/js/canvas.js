@@ -332,24 +332,41 @@ function SYMBOL(){
     this.run(contents);
 }
 var run_me = new SYMBOL();
+function init_box(){
+    var box = $('#box');
+    var showPanelButtons = $('#show-buttons button');
+    var panelClassName = 'show-front';
 
-  init_box();
-  // Specifying options
-  var index = 0;
-  var MAX = $(".text-side").length
-  $(".text-side").hide();
-  function showNext(){
-    var prev = $(".text-side")[index];
-    index++;
-    if(index>=MAX){
-      index=0;
+    function onButtonClick( event ){
+        box.removeClass( panelClassName );
+        panelClassName = event.target.className;
+        box.addClass( panelClassName );
+    };
+
+    for (var i=0; i < showPanelButtons.length; i++) {
+        $(showPanelButtons[i]).on('click',onButtonClick);
     }
-    var next = $(".text-side")[index];
-    $(prev).animo({ animation:'flipOutY',duration:1,keep:false}, function(e) {
-      $(prev).hide();
-      $(next).show();
-      $(next).animo({ animation:'flipInY', duration:1, keep:false});
+    $('#toggle-backface-visibility').on( 'click', function(){
+        box.toggleClass('panels-backface-invisible');
     });
-  }
-  $(".text-side").on("click",showNext);
-  $(".text-side").first().show();
+}
+init_box();
+// Specifying options
+var index = 0;
+var MAX = $(".text-side").length
+$(".text-side").hide();
+function showNext(){
+var prev = $(".text-side")[index];
+index++;
+if(index>=MAX){
+  index=0;
+}
+var next = $(".text-side")[index];
+$(prev).animo({ animation:'flipOutY',duration:1,keep:false}, function(e) {
+  $(prev).hide();
+  $(next).show();
+  $(next).animo({ animation:'flipInY', duration:1, keep:false});
+});
+}
+$(".text-side").on("click",showNext);
+$(".text-side").first().show();
