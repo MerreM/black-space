@@ -20,11 +20,13 @@ $(document).ready(function(){
   var count = 0;
   var mode = false;
   var animate = true;
-  var ALPHA = 0.2;
-  var ParticleCount = 1000;
+  var ALPHA = 1.0;
+  var ParticleCount = 500;
   var width = $(display).parent().width()
   var height = $(display).parent().height()
   var mouse = { x: width * 0.5, y: height * 0.5 };
+  var P_TAIL_SIZE = 5
+  var S_TAIL_SIZE = 5
   //
   fitToContainer(display);
 
@@ -62,11 +64,14 @@ function changeColour(i){
 
   function Particle(x, y, size) {
     if(size == null){
+      this.star = false
       this.size=Math.random()*5;
     } else {
+      this.star = true
       this.size = size;
 
     }
+    this.history = []
     this.phase = 0+Math.random()*100;
     this.x = this.oldX = x;
     this.y = this.oldY = y;
@@ -79,6 +84,17 @@ function changeColour(i){
     this.oldY = this.y;
     this.x += velocityX;
     this.y += velocityY;
+  };
+
+  Particle.prototype.repel = function(x, y) {
+    var dx = this.x - x;
+    var dy = this.y - y;
+    // dx+=Math.random();
+    // dy+=Math.random();
+    var distance = Math.sqrt(dx * dx + dy * dy);
+    distance+=Math.random();
+    this.x += dx / distance;
+    this.y += dy / distance;
   };
 
   Particle.prototype.attract = function(x, y) {
@@ -96,9 +112,9 @@ function changeColour(i){
     function isNumber(n) {
       return !isNaN(parseFloat(n)) && isFinite(n);
     }
-    if(i!=null && isNumber(i)){
+    if(i!=null && !this.star){
       ctx.strokeStyle = changeColour(i);
-    } else if (i == "star"){
+    } else if (this.star){
       ctx.strokeStyle="#fff"
     } else {
       ctx.strokeStyle = changeColour(this.phase);
@@ -108,11 +124,41 @@ function changeColour(i){
     ctx.moveTo(this.oldX, this.oldY);
     ctx.lineTo(this.x, this.y);
     ctx.stroke();
+    
+    this.backup()
+    this.draw_backup();
+
     this.phase+=frequency
     if(this.phase>10000){
       this.phase=0;
     }
   };
+
+  Particle.prototype.backup = function() {
+    if(!this.star){
+      var history = {colour:ctx.strokeStyle, previous_x:this.oldX, previous_y:this.oldY, current_x:this.x,current_y:this.y};
+      this.history.splice(0,0,history);
+
+      // {colour:ctx.strokeStyle, previous_x:this.oldX, previous_y:this.oldY, current_x:this.x,current_y:this.y}
+      if (this.history.length>P_TAIL_SIZE){
+        this.history.splice(P_TAIL_SIZE,this.history.length-P_TAIL_SIZE);
+        // console.log(this.history);
+        // BLURGH();
+     }
+    }
+}
+
+  Particle.prototype.draw_backup = function() {
+    for (var i = 0; i < this.history.length; i++) {
+      var history =this.history[i]
+      ctx.strokeStyle = history.colour;
+      ctx.lineWidth = this.size-i;
+      ctx.beginPath();
+      ctx.moveTo(history.previous_x, history.previous_y);
+      ctx.lineTo(history.current_x, history.current_y);
+      ctx.stroke();
+    }
+  }
 
   function init(){
     for (var i = 0; i < ParticleCount; i++) {
@@ -133,9 +179,10 @@ function changeColour(i){
 
       // ctx.clearRect(0, 0, width, height);
       for (var i = 0; i < stars.length; i++) {
-        stars[i].attract(stars[i].x+(5-(Math.random()*10)),stars[i].y+(5-(Math.random()*10)));
+        // stars[i].attract(stars[i].x+(5-(Math.random()*10)),stars[i].y+(5-(Math.random()*10)));
+        stars[i].repel(width/2,height/2);
         stars[i].integrate();
-        stars[i].draw("star");
+        stars[i].draw();
         if(stars[i].x>width || stars[i].x<0 || stars[i].y > height || stars[i].height<0 ){
           stars[i]= new Particle(Math.random() * width, Math.random() * height,Math.random()*2);
         }
