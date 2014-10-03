@@ -15,6 +15,7 @@ $(document).ready(function(){
   var display = document.getElementById('playful');
   var ctx = display.getContext('2d');
   var particles = [];
+  var stars = [];
   var frequency = 0.2;
   var count = 0;
   var mode = false;
@@ -26,10 +27,6 @@ $(document).ready(function(){
   var mouse = { x: width * 0.5, y: height * 0.5 };
   //
   fitToContainer(display);
-  // display.style.width='100%';
-  // display.style.height='100%';
-  // display.width  = display.offsetWidth;
-  // display.height = display.offsetHeight;
 
   function onMousemove(e,display) {
     var rect = display.getBoundingClientRect();
@@ -38,9 +35,7 @@ $(document).ready(function(){
   }
 
   $("#playful").on("click",function(){
-  for (var i = 0; i < ParticleCount; i++) {
-      particles[i] = new Particle(Math.random() * width, Math.random() * height);
-    }
+    init();
     mode = !mode;
   });
 
@@ -65,8 +60,13 @@ function changeColour(i){
 }
 
 
-  function Particle(x, y) {
-    this.size=Math.random()*5
+  function Particle(x, y, size) {
+    if(size == null){
+      this.size=Math.random()*5;
+    } else {
+      this.size = size;
+
+    }
     this.phase = 0+Math.random()*100;
     this.x = this.oldX = x;
     this.y = this.oldY = y;
@@ -93,8 +93,13 @@ function changeColour(i){
   };
 
   Particle.prototype.draw = function(i) {
-    if(i!=null){
+    function isNumber(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+    if(i!=null && isNumber(i)){
       ctx.strokeStyle = changeColour(i);
+    } else if (i == "star"){
+      ctx.strokeStyle="#fff"
     } else {
       ctx.strokeStyle = changeColour(this.phase);
     }
@@ -109,12 +114,31 @@ function changeColour(i){
     }
   };
 
+  function init(){
+    for (var i = 0; i < ParticleCount; i++) {
+      stars[i] = new Particle(Math.random() * width, Math.random() * height,Math.random()*2);
+    }
+    for (var i = 0; i < ParticleCount; i++) {
+      particles[i] = new Particle(Math.random() * width, Math.random() * height);
+    }
+  }
+
+  init();
+
   function frame() {
     requestAnimationFrame(frame);
     if(animate){
       ctx.fillStyle = "rgba(35, 35, 35, "+ALPHA.toFixed(2)+")"
       ctx.fillRect(0,0,width,height);
       // ctx.clearRect(0, 0, width, height);
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].attract(stars[i].x+(5-(Math.random()*10)),stars[i].y+(5-(Math.random()*10)));
+        stars[i].integrate();
+        stars[i].draw("star");
+        if(stars[i].x>width || stars[i].x<0 || stars[i].y > height || stars[i].height<0 ){
+          stars[i]= new Particle(Math.random() * width, Math.random() * height,Math.random()*2);
+        }
+      }
       for (var i = 0; i < particles.length; i++) {
         particles[i].attract(mouse.x, mouse.y);
         particles[i].integrate();
@@ -130,10 +154,10 @@ function changeColour(i){
       count++;
     }
   }
+
+
   requestAnimationFrame(frame);
-  for (var i = 0; i < ParticleCount; i++) {
-    particles[i] = new Particle(Math.random() * width, Math.random() * height);
-  }
+
   $("#frequency-control").text("Frequency "+frequency.toFixed(2));
   $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
   $(document).keydown(function(evt) {
