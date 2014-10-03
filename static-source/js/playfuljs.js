@@ -130,6 +130,7 @@ function changeColour(i){
     if(animate){
       ctx.fillStyle = "rgba(35, 35, 35, "+ALPHA.toFixed(2)+")"
       ctx.fillRect(0,0,width,height);
+
       // ctx.clearRect(0, 0, width, height);
       for (var i = 0; i < stars.length; i++) {
         stars[i].attract(stars[i].x+(5-(Math.random()*10)),stars[i].y+(5-(Math.random()*10)));
@@ -141,6 +142,7 @@ function changeColour(i){
       }
       for (var i = 0; i < particles.length; i++) {
         particles[i].attract(mouse.x, mouse.y);
+        particles[i].attract(particles[i].x+(1-(Math.random()*2)),particles[i].y+(1-(Math.random()*2)));
         particles[i].integrate();
         if(mode===true){
           particles[i].draw(count);
