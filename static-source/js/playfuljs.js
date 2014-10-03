@@ -21,7 +21,7 @@ $(document).ready(function(){
   var mode = false;
   var animate = true;
   var ALPHA = 1.0;
-  var ParticleCount = 500;
+  var ParticleCount = 250;
   var width = $(display).parent().width()
   var height = $(display).parent().height()
   var mouse = { x: width * 0.5, y: height * 0.5 };
@@ -151,11 +151,16 @@ function changeColour(i){
   Particle.prototype.draw_backup = function() {
     for (var i = 0; i < this.history.length; i++) {
       var history =this.history[i]
+      if(i!=0){
+        var history2 =this.history[i-1]
+      }
       ctx.strokeStyle = history.colour;
       ctx.lineWidth = this.size-i;
       ctx.beginPath();
       ctx.moveTo(history.previous_x, history.previous_y);
-      ctx.lineTo(history.current_x, history.current_y);
+      if(history2!=null){
+        ctx.lineTo(history2.previous_x, history2.previous_y);
+      }
       ctx.stroke();
     }
   }
