@@ -4,6 +4,10 @@ var DAMPING = 1;
 
 $(document).ready(function(){
 
+  function getNoise(x){
+    return (x-(Math.random()*Math.abs(x*2)))
+  }
+
 
   function fitToContainer(canvas){
     canvas.style.width='100%';
@@ -14,6 +18,7 @@ $(document).ready(function(){
 
   var display = document.getElementById('playful');
   var ctx = display.getContext('2d');
+  var HYPER_DRIVE=false;
   var particles = [];
   var stars = [];
   var frequency = 0.2;
@@ -27,6 +32,7 @@ $(document).ready(function(){
   var mouse = { x: width * 0.5, y: height * 0.5 };
   var P_TAIL_SIZE = 5
   var S_TAIL_SIZE = 5
+  var NOISE = 100;
   //
   fitToContainer(display);
 
@@ -186,27 +192,30 @@ function changeColour(i){
       for (var i = 0; i < stars.length; i++) {
         // stars[i].attract(stars[i].x+(5-(Math.random()*10)),stars[i].y+(5-(Math.random()*10)));
         stars[i].repel(width/2,height/2);
+        // stars[i].repel(stars[i].x+(1-(Math.random()*2)),stars[i].y+(1-(Math.random()*2)));
         stars[i].integrate();
         stars[i].draw();
         if(stars[i].x>width || stars[i].x<0 || stars[i].y > height || stars[i].height<0 ){
           stars[i]= new Particle(Math.random() * width, Math.random() * height,Math.random()*2);
         }
       }
-      for (var i = 0; i < particles.length; i++) {
-        particles[i].attract(mouse.x, mouse.y);
-        particles[i].attract(particles[i].x+(1-(Math.random()*2)),particles[i].y+(1-(Math.random()*2)));
-        particles[i].integrate();
-        if(mode===true){
-          particles[i].draw(count);
-        } else {
-          particles[i].draw();
+      if(!HYPER_DRIVE){
+        for (var i = 0; i < particles.length; i++) {
+          particles[i].attract(mouse.x, mouse.y);
+          particles[i].attract(particles[i].x+getNoise(NOISE),particles[i].y+getNoise(NOISE));
+          particles[i].integrate();
+          if(mode===true){
+            particles[i].draw(count);
+          } else {
+            particles[i].draw();
+          }
+          if (count>100000){
+            count = 0;
+          }
         }
-        if (count>100000){
-          count = 0;
-        }
+        count++;
       }
-      count++;
-    }
+    } 
   }
 
 
@@ -215,8 +224,11 @@ function changeColour(i){
   $("#frequency-control").text("Frequency "+frequency.toFixed(2));
   $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
   $(document).keydown(function(evt) {
+    // console.log(evt.keyCode)
     if (evt.keyCode == 80) {
       animate = !animate;
+    } else if (evt.keyCode==83){
+      HYPER_DRIVE=!HYPER_DRIVE;
     } else if (evt.keyCode==37){
       frequency-=0.1;
       $("#frequency-control").text("Frequency "+frequency.toFixed(2));
