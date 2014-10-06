@@ -32,7 +32,7 @@ $(document).ready(function(){
   var mouse = { x: width * 0.5, y: height * 0.5 };
   var P_TAIL_SIZE = 5
   var S_TAIL_SIZE = 5
-  var NOISE = 100;
+  var NOISE = 5;
   //
   fitToContainer(display);
 
@@ -92,24 +92,18 @@ function changeColour(i){
     this.y += velocityY;
   };
 
-  Particle.prototype.repel = function(x, y) {
+  Particle.prototype.repel = function(x, y, multiplier) {
     var dx = this.x - x;
     var dy = this.y - y;
-    // dx+=Math.random();
-    // dy+=Math.random();
     var distance = Math.sqrt(dx * dx + dy * dy);
-    distance+=Math.random();
     this.x += dx / distance;
     this.y += dy / distance;
   };
 
-  Particle.prototype.attract = function(x, y) {
+  Particle.prototype.attract = function(x, y, multiplier) {
     var dx = x - this.x;
     var dy = y - this.y;
-    // dx+=Math.random();
-    // dy+=Math.random();
     var distance = Math.sqrt(dx * dx + dy * dy);
-    distance+=Math.random();
     this.x += dx / distance;
     this.y += dy / distance;
   };
@@ -191,7 +185,7 @@ function changeColour(i){
       // ctx.clearRect(0, 0, width, height);
       for (var i = 0; i < stars.length; i++) {
         // stars[i].attract(stars[i].x+(5-(Math.random()*10)),stars[i].y+(5-(Math.random()*10)));
-        stars[i].repel(width/2,height/2);
+        stars[i].repel(mouse.x,mouse.y);
         // stars[i].repel(stars[i].x+(1-(Math.random()*2)),stars[i].y+(1-(Math.random()*2)));
         stars[i].integrate();
         stars[i].draw();
@@ -203,6 +197,7 @@ function changeColour(i){
         for (var i = 0; i < particles.length; i++) {
           particles[i].attract(mouse.x, mouse.y);
           particles[i].attract(particles[i].x+getNoise(NOISE),particles[i].y+getNoise(NOISE));
+          // particles[i].repel(mouse.x, mouse.y);
           particles[i].integrate();
           if(mode===true){
             particles[i].draw(count);
