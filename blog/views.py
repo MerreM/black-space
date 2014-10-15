@@ -10,7 +10,7 @@ def writing(request):
     parent_cats = Catergory.objects.filter(visible=True,parent=None)
     posts = {}
     for cat in parent_cats:
-        posts[cat]=cat.post_set.all()[:3]
+        posts[cat]=cat.post_set.filter(published=True)[:3]
     context = {
         "posts":posts,
         "parent_cats":parent_cats,
@@ -34,7 +34,7 @@ def tags(request,tags):
     for tag in split_tags:
         query = query | Q(tag__icontains=tag)
     tags = Tag.objects.filter(query)
-    posts = Post.objects.filter(tags__in=tags,published=False).order_by("-created").distinct()
+    posts = Post.objects.filter(tags__in=tags,published=True).order_by("-created").distinct()
     if request.user.is_staff:
         posts = Post.objects.filter(tags__in=tags).order_by("-created").distinct()
     context = {
