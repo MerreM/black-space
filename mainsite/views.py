@@ -23,3 +23,6 @@ def writing(request):
 
 def canvas(request):
     return render(request,"canvas.html",{})
+
+def life(request):
+    return render(request,"life.html",{})

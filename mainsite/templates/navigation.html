@@ -9,6 +9,10 @@
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Canvas</a>
         </li>
+        {% url "mainsite:life" as current %}
+        <li class="{% if current ==  request.path %}active{% endif %}">
+            <a href="{{current}}">Game of Liff</a>
+        </li>
         {% url "blog:writing" as current %}
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Writing</a>
