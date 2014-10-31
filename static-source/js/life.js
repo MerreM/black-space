@@ -55,7 +55,6 @@ $(document).ready(function(){
             return false;
         }
     }
-
     function generateNextGeneration(grid){
         var newGrid = generateGrid(grid.length,grid[0].length);
         for (var x=0; x<(grid.length); x++){
@@ -66,7 +65,6 @@ $(document).ready(function(){
         }
         return newGrid;
     }
-
     function generateFirstGrid(width,height){
         MAX_X=width;
         MAX_Y=height;
@@ -74,7 +72,7 @@ $(document).ready(function(){
         for (var x=0; x<(width); x++){
             grid[x] = new Array(height);
             for(var y=0; y<grid[x].length; y++){
-                grid[x][y] = (Math.random()*10)>5;
+                grid[x][y] = (Math.random()*10)>6;
             }
         }
         return grid;
@@ -89,7 +87,6 @@ $(document).ready(function(){
         }
         return grid;
     }
-
     function drawGrid(context,grid){
         for(var x=0; x<(grid.length); x++){
             for(var y =0; y<(grid[x].length); y++){
@@ -102,9 +99,7 @@ $(document).ready(function(){
                 context.stroke();
             }
         }
-        // generateGrid(context,width,height);
     }
-
     var canvas = $("#game_of_life");
     var context = canvas[0].getContext('2d');
     var grid = generateFirstGrid(canvas.width()/GRID_SIZE,canvas.height()/GRID_SIZE);
@@ -115,12 +110,10 @@ $(document).ready(function(){
             window.setTimeout(callback, 3000);
         };
     }();
-
     canvas.on('click', function(evt){
         grid = onClick(evt,canvas,grid);
         drawGrid(context,grid);
     });
-
     var then = Date.now();
     var fps = 30;
     var interval = 1000/fps;
