@@ -7,10 +7,11 @@ OVER_POPULATION = 4;
 MAX_X = 0;
 MAX_Y = 0;
 
+ANIMATE = true;
+
 var mouse={};
 
 $(document).ready(function(){
-
     function onClick(e,display,grid) {
         var rect = display[0].getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
@@ -18,12 +19,9 @@ $(document).ready(function(){
         var temp_x = mouse.x;
         index_x = Math.floor(mouse.x/GRID_SIZE);
         index_y = Math.floor(mouse.y/GRID_SIZE);
-        console.log(grid[index_x][index_y]);
         grid[index_x][index_y] = !grid[index_x][index_y]
-        console.log(grid[index_x][index_y]);
         return grid
     }
-
     function coordInBounds(x,y){
         if(x>=0 && x<MAX_X){
             if(y>=0 && y<MAX_Y){
@@ -32,7 +30,6 @@ $(document).ready(function(){
         }
         return false
     }
-
     function getNeighbours(grid,x,y,alive){
         var live_neighbours = 0;
         for(var diff_x=-1; diff_x<2; diff_x++){
@@ -40,8 +37,6 @@ $(document).ready(function(){
                 var x_index = x+diff_x;
                 var y_index = y+diff_y;
                 if(coordInBounds(x_index,y_index) && !(diff_x==0 && diff_y==0 )){
-                    // console.log(x_index);
-                    // console.log(grid[x_index]);
                     if(grid[x_index][y_index]==true){
                         live_neighbours++;
                     }
@@ -123,6 +118,7 @@ $(document).ready(function(){
 
     canvas.on('click', function(evt){
         grid = onClick(evt,canvas,grid);
+        drawGrid(context,grid);
     });
 
     var then = Date.now();
@@ -132,9 +128,19 @@ $(document).ready(function(){
         grid = generateNextGeneration(grid);
         drawGrid(context,grid);
         requestAnimFrame(function() {
-            animate();
+            if(ANIMATE){
+                animate();
+            }
         });
     }
     animate();
+    $(document).keydown(function(evt) {
+        if (evt.keyCode == 80) {
+          ANIMATE = !ANIMATE;
+          if(ANIMATE){
+            animate();
+          }
+        }
+    });
 });
 
