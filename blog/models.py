@@ -24,7 +24,7 @@ class Post(models.Model):
     title = models.CharField(max_length=256)
     slug = models.SlugField()
     post = models.TextField()
-    priority = models.IntegerField()
+    # priority = models.IntegerField()
     catergories = models.ManyToManyField(Catergory)
     tags = models.ManyToManyField(Tag,blank=True)
     published = models.BooleanField(default=False)
