@@ -37,7 +37,7 @@
         <h6>Author - {{latest_post.author}}</h6>
         <div class="snippit">
             {% autoescape off %}
-            {{latest_post.markdown_post |truncatewords:50 }} <a href="{% url 'blog:post' catergory=latest_post.public_catergories.0 slug=latest_post.slug %}">(contd.)</a>
+            {{latest_post.markdown_post |truncatewords:100 }} <a href="{% url 'blog:post' catergory=latest_post.public_catergories.0 slug=latest_post.slug %}">(contd.)</a>
             {% endautoescape %}
         </div>
     </div>
