@@ -42,6 +42,6 @@ class Post(models.Model):
 
 
     class Meta:
-        get_latest_by = 'modified'
+        get_latest_by = 'priority'
 
 
