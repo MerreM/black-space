@@ -114,25 +114,23 @@ $(document).ready(function(){
         grid = onClick(evt,canvas,grid);
         drawGrid(context,grid);
     });
-    var then = Date.now();
-    var fps = 30;
-    var interval = 1000/fps;
-    function animate(){
+
+    function stepEngine(){
         grid = generateNextGeneration(grid);
-        drawGrid(context,grid);
-        requestAnimFrame(function() {
-            if(ANIMATE){
-                animate();
-            }
-        });
+        window.setTimeout(stepEngine, 100);
+    }
+    function animate(){
+        // grid = generateNextGeneration(grid);
+        if(ANIMATE){
+            drawGrid(context,grid);
+        }
+        requestAnimFrame(animate);
     }
     animate();
+    stepEngine();
     $(document).keydown(function(evt) {
         if (evt.keyCode == 80) {
           ANIMATE = !ANIMATE;
-          if(ANIMATE){
-            animate();
-          }
         }
     });
 });

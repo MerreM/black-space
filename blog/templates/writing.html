@@ -9,19 +9,21 @@
     </div>
     <div>
         {% for catergory,post_list in posts.items %}
-            <div class="col-md-12 well">
-                <div class="col-md-6">
-                    <h2><a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a></h2>
+            <div class="col-md-12 panel panel-default">
+                <div class=panel-heading>
+                    <h3><a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a></h3>
                 </div>
-                {% for post in post_list %}
-                <div class="col-md-6">
-                    <a href="{%url 'blog:post' catergory=catergory.name slug=post.slug %}">{{post.title}}</a>
+                <div class=panel-body>
+                    <ul class=list-group>
+                        {% for post in post_list %}
+                        <li class="list-group-item">
+                            <a href="{%url 'blog:post' catergory=catergory.name slug=post.slug %}">{{post.title}}</a>
+                        </li>
+                        {% empty %}
+                            ...
+                        {%endfor%}
+                    </ul>
                 </div>
-                {% empty %}
-                <div class="col-md-6">
-                    ...
-                </div>
-                {%endfor%}
             </div>
         {% endfor %}
         </ul>
