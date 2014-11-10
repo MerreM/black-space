@@ -176,29 +176,16 @@ function changeColour(i){
 
   init();
 
-  function frame() {
-    requestAnimationFrame(frame);
+  function draw(){
+    requestAnimationFrame(draw);
     if(animate){
       ctx.fillStyle = "rgba(35, 35, 35, "+ALPHA.toFixed(2)+")"
       ctx.fillRect(0,0,width,height);
-
-      // ctx.clearRect(0, 0, width, height);
       for (var i = 0; i < stars.length; i++) {
-        // stars[i].attract(stars[i].x+(5-(Math.random()*10)),stars[i].y+(5-(Math.random()*10)));
-        stars[i].repel(mouse.x,mouse.y);
-        // stars[i].repel(stars[i].x+(1-(Math.random()*2)),stars[i].y+(1-(Math.random()*2)));
-        stars[i].integrate();
         stars[i].draw();
-        if(stars[i].x>width || stars[i].x<0 || stars[i].y > height || stars[i].height<0 ){
-          stars[i]= new Particle(Math.random() * width, Math.random() * height,Math.random()*2);
-        }
       }
       if(!HYPER_DRIVE){
         for (var i = 0; i < particles.length; i++) {
-          particles[i].attract(mouse.x, mouse.y);
-          particles[i].attract(particles[i].x+getNoise(NOISE),particles[i].y+getNoise(NOISE));
-          // particles[i].repel(mouse.x, mouse.y);
-          particles[i].integrate();
           if(mode===true){
             particles[i].draw(count);
           } else {
@@ -213,8 +200,31 @@ function changeColour(i){
     } 
   }
 
-
-  requestAnimationFrame(frame);
+  function update(){
+    if(animate){
+      for (var i = 0; i < stars.length; i++) {
+        stars[i].repel(mouse.x,mouse.y);
+        stars[i].integrate();
+        if(stars[i].x>width || stars[i].x<0 || stars[i].y > height || stars[i].height<0 ){
+          stars[i]= new Particle(Math.random() * width, Math.random() * height,Math.random()*2);
+        }
+      }
+      if(!HYPER_DRIVE){
+        for (var i = 0; i < particles.length; i++) {
+          particles[i].attract(mouse.x, mouse.y);
+          particles[i].attract(particles[i].x+getNoise(NOISE),particles[i].y+getNoise(NOISE));
+          particles[i].integrate();
+          if (count>100000){
+            count = 0;
+          }
+        }
+        count++;
+      }
+    }
+    window.setTimeout(update, 1); 
+  }
+  requestAnimationFrame(draw);
+  window.setTimeout(update, 1);
 
   $("#frequency-control").text("Frequency "+frequency.toFixed(2));
   $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
