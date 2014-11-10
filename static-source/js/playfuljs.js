@@ -33,18 +33,27 @@ $(document).ready(function(){
   var P_TAIL_SIZE = 5
   var S_TAIL_SIZE = 5
   var NOISE = 5;
+  var FOLLOW = true;
   //
   fitToContainer(display);
 
   function onMousemove(e,display) {
     var rect = display.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
+    if(FOLLOW){
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    }
   }
 
-  $("#playful").on("click",function(){
-    init();
-    mode = !mode;
+  $("#playful").on("click",function(e){
+    console.log(e);
+    if(e.which==1){
+      init();
+      mode = !mode;
+    } else if (e.which == 2){
+      FOLLOW=!FOLLOW;
+      console.log(FOLLOW)
+    }
   });
 
   display.addEventListener('mousemove', function(evt){
