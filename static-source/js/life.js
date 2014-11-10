@@ -72,7 +72,7 @@ $(document).ready(function(){
         for (var x=0; x<(width); x++){
             grid[x] = new Array(height);
             for(var y=0; y<grid[x].length; y++){
-                grid[x][y] = (Math.random()*10)>6;
+                grid[x][y] = (Math.random()*10)>9;
             }
         }
         return grid;
