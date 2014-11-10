@@ -33,7 +33,7 @@ $(document).ready(function(){
   var P_TAIL_SIZE = 5
   var S_TAIL_SIZE = 5
   var NOISE = 5;
-  var FOLLOW = true;
+  var FOLLOW = false;
   //
   fitToContainer(display);
 
