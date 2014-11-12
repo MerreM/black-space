@@ -5,7 +5,7 @@ from django.test import Client
 class BasicPageTestCase(TestCase):
     def setUp(self):
         self.client = Client()
-        self.urls=["/","/about_me/","/canvas/"]
+        self.urls=["/","/about_me/","/canvas/","/life/"]
 
     def test_urls(self):
         for url in self.urls:
