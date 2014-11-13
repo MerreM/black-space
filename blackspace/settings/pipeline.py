@@ -2,25 +2,14 @@
 PIPELINE_CSS = {
     'main': {
         'source_filenames': (
-          'css/*.css',
+            'less/bootstrap.less',
+            'css/*.css',
         ),
         'output_filename': 'css/style.min.css',
-    },
-    'bootstrap': {
-        'source_filenames': (
-            'less/bootstrap.less',
-        ),
-        'output_filename': 'css/b.css',
         'extra_context': {
             'media': 'screen,projection',
         },
-    },
-    'animo': {
-        'source_filenames': (
-            'css/animate_animo.css',
-        ),
-        'output_filename': 'css/c.css',
-    },
+    }
 }
 
 PIPELINE_JS = {
