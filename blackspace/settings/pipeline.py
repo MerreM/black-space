@@ -1,4 +1,4 @@
-
+from local import DEBUG
 PIPELINE_CSS = {
     'main': {
         'source_filenames': (
@@ -21,7 +21,6 @@ PIPELINE_JS = {
           'js/experiment_*.js',
           'js/main.js',
         ),
-        'extra_context': {'async': True},
         'output_filename': 'js/main.min.js',
     },
     'playful': {
@@ -33,7 +32,6 @@ PIPELINE_JS = {
           'js/main.js',
           'js/playfuljs.js',
         ),
-        'extra_context': {'async': True},
         'output_filename': 'js/playful.min.js',
     },
     'life': {
@@ -45,7 +43,6 @@ PIPELINE_JS = {
           'js/main.js',
           'js/life.js',
         ),
-        'extra_context': {'async': True},
         'output_filename': 'js/life.min.js',
     },
     'canvas': {
@@ -57,10 +54,17 @@ PIPELINE_JS = {
           'js/main.js',
           'js/canvas.js',
         ),
-        'extra_context': {'async': True},
         'output_filename': 'js/canvas.min.js',
     },
 }
+
+for key, value in PIPELINE_JS.items():
+  print key
+  print value
+  print DEBUG
+  if not DEBUG:
+    value['extra_context'] = {'async':True}
+  PIPELINE_JS[key] = value
 
 PIPELINE_COMPILERS = (
   'pipeline.compilers.less.LessCompiler',

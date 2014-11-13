@@ -10,7 +10,7 @@ def writing(request):
     parent_cats = Catergory.objects.filter(visible=True,parent=None)
     posts = {}
     for cat in parent_cats:
-        posts[cat]=cat.post_set.filter(published=True)[:3]
+        posts[cat]=cat.post_set.filter(published=True).order_by("created")[:3]
     context = {
         "posts":posts,
         "parent_cats":parent_cats,
