@@ -15,22 +15,20 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'main': {
         'source_filenames': (
-          'js/main.js',
+          'js/animo.js',
           'js/generic_particles.js',
           'js/experiment_*.js',
+          'js/main.js',
         ),
         'extra_context': {'async': True},
         'output_filename': 'js/main.min.js',
     },
-    'animo': {
-        'source_filenames': (
-            'js/animo.js',
-        ),
-        'extra_context': {'async': True},
-        'output_filename': 'js/c.js',
-    },
     'playful': {
         'source_filenames': (
+          'js/animo.js',
+          'js/generic_particles.js',
+          'js/experiment_*.js',
+          'js/main.js',
           'js/playfuljs.js',
         ),
         'extra_context': {'async': True},
@@ -38,6 +36,10 @@ PIPELINE_JS = {
     },
     'life': {
         'source_filenames': (
+          'js/animo.js',
+          'js/generic_particles.js',
+          'js/experiment_*.js',
+          'js/main.js',
           'js/life.js',
         ),
         'extra_context': {'async': True},
