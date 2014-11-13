@@ -62,6 +62,6 @@ PIPELINE_COMPILERS = (
 )
 
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.jsmin.JSMinCompressor'
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
