@@ -19,30 +19,35 @@ PIPELINE_JS = {
           'js/generic_particles.js',
           'js/experiment_*.js',
         ),
+        'extra_context': {'async': True},
         'output_filename': 'js/main.min.js',
     },
     'animo': {
         'source_filenames': (
             'js/animo.js',
         ),
+        'extra_context': {'async': True},
         'output_filename': 'js/c.js',
     },
     'playful': {
         'source_filenames': (
           'js/playfuljs.js',
         ),
+        'extra_context': {'async': True},
         'output_filename': 'js/playful.min.js',
     },
     'life': {
         'source_filenames': (
           'js/life.js',
         ),
+        'extra_context': {'async': True},
         'output_filename': 'js/life.min.js',
     },
     'canvas': {
         'source_filenames': (
           'js/canvas.js',
         ),
+        'extra_context': {'async': True},
         'output_filename': 'js/canvas.min.js',
     },
 }
