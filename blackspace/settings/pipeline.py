@@ -50,6 +50,11 @@ PIPELINE_JS = {
     },
     'canvas': {
         'source_filenames': (
+          'js/jquery-2.1.1.js',
+          'js/animo.js',
+          'js/generic_particles.js',
+          'js/experiment_*.js',
+          'js/main.js',
           'js/canvas.js',
         ),
         'extra_context': {'async': True},
