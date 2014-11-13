@@ -116,11 +116,12 @@ $(document).ready(function(){
     });
 
     function stepEngine(){
-        grid = generateNextGeneration(grid);
+        if(ANIMATE){
+            grid = generateNextGeneration(grid);
+        }
         window.setTimeout(stepEngine, 100);
     }
     function animate(){
-        // grid = generateNextGeneration(grid);
         if(ANIMATE){
             drawGrid(context,grid);
         }
