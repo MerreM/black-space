@@ -15,6 +15,7 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'main': {
         'source_filenames': (
+          'js/jquery-2.1.1.js',
           'js/animo.js',
           'js/generic_particles.js',
           'js/experiment_*.js',
@@ -25,6 +26,7 @@ PIPELINE_JS = {
     },
     'playful': {
         'source_filenames': (
+          'js/jquery-2.1.1.js',
           'js/animo.js',
           'js/generic_particles.js',
           'js/experiment_*.js',
@@ -36,6 +38,7 @@ PIPELINE_JS = {
     },
     'life': {
         'source_filenames': (
+          'js/jquery-2.1.1.js',
           'js/animo.js',
           'js/generic_particles.js',
           'js/experiment_*.js',
