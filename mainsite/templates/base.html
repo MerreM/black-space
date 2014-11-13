@@ -38,14 +38,14 @@
                 {% endblock %}
                 </div>
                 <div class="col-md-3 drop">
-                    {% block experiment %}
+                    {% block experiement %}
                         {% include "experiment.html" %}
                     {% endblock %}
                 </div>
             </div>
         </div>
         {% include "footer.html" %}
-        <script src="//code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script>
+        <script async src="//code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script>
         {% compressed_js 'bootstrap' %}
         {% block main_js %}
         {% compressed_js 'animo' %}
