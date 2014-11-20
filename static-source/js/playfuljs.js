@@ -230,10 +230,9 @@ function changeColour(i){
         count++;
       }
     }
-    window.setTimeout(update, 1); 
   }
   requestAnimationFrame(draw);
-  window.setTimeout(update, 1);
+  window.setInterval(update, 10);
 
   $("#frequency-control").text("Frequency "+frequency.toFixed(2));
   $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
