@@ -15,6 +15,7 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'main': {
         'source_filenames': (
+          'js/jquery-2.1.1.js',
           'js/bootstrap/transition.js',
           'js/bootstrap/alert.js',
           'js/bootstrap/button.js',
@@ -27,7 +28,6 @@ PIPELINE_JS = {
           'js/bootstrap/scrollspy.js',
           'js/bootstrap/tab.js',
           'js/bootstrap/affix.js',
-          'js/jquery-2.1.1.js',
           'js/animo.js',
           'js/generic_particles.js',
           'js/experiment_*.js',
@@ -37,6 +37,7 @@ PIPELINE_JS = {
     },
     'playful': {
         'source_filenames': (
+          'js/jquery-2.1.1.js',
           'js/bootstrap/transition.js',
           'js/bootstrap/alert.js',
           'js/bootstrap/button.js',
@@ -49,7 +50,6 @@ PIPELINE_JS = {
           'js/bootstrap/scrollspy.js',
           'js/bootstrap/tab.js',
           'js/bootstrap/affix.js',
-          'js/jquery-2.1.1.js',
           'js/animo.js',
           'js/generic_particles.js',
           'js/experiment_*.js',
@@ -60,6 +60,7 @@ PIPELINE_JS = {
     },
     'life': {
         'source_filenames': (
+          'js/jquery-2.1.1.js',
           'js/bootstrap/transition.js',
           'js/bootstrap/alert.js',
           'js/bootstrap/button.js',
@@ -72,7 +73,6 @@ PIPELINE_JS = {
           'js/bootstrap/scrollspy.js',
           'js/bootstrap/tab.js',
           'js/bootstrap/affix.js',
-          'js/jquery-2.1.1.js',
           'js/animo.js',
           'js/generic_particles.js',
           'js/experiment_*.js',
@@ -83,6 +83,7 @@ PIPELINE_JS = {
     },
     'canvas': {
         'source_filenames': (
+          'js/jquery-2.1.1.js',
           'js/bootstrap/transition.js',
           'js/bootstrap/alert.js',
           'js/bootstrap/button.js',
@@ -95,7 +96,6 @@ PIPELINE_JS = {
           'js/bootstrap/scrollspy.js',
           'js/bootstrap/tab.js',
           'js/bootstrap/affix.js',
-          'js/jquery-2.1.1.js',
           'js/animo.js',
           'js/generic_particles.js',
           'js/experiment_*.js',
