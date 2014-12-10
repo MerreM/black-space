@@ -69,6 +69,8 @@ PIPELINE_JS = {
     'life': {
         'source_filenames': (
           'js/jquery-2.1.1.js',
+          'js/ripples.js',
+          'js/material.js',
           'js/bootstrap/transition.js',
           'js/bootstrap/alert.js',
           'js/bootstrap/button.js',
@@ -92,6 +94,8 @@ PIPELINE_JS = {
     'canvas': {
         'source_filenames': (
           'js/jquery-2.1.1.js',
+          'js/ripples.js',
+          'js/material.js',
           'js/bootstrap/transition.js',
           'js/bootstrap/alert.js',
           'js/bootstrap/button.js',

@@ -9,9 +9,9 @@
     </div>
     <div>
         {% for catergory,post_list in posts.items %}
-            <div class="col-md-12 panel panel-default">
+            <div class="panel panel-primary">
                 <div class=panel-heading>
-                    <h3><a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a></h3>
+                    <h2 class=panel-title><a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a></h2>
                 </div>
                 <div class=panel-body>
                     <ul class=list-group>

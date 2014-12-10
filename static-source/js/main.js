@@ -7,3 +7,4 @@ $(".latest_post").mouseout(function(){$(".latest_post").animo('blur', {duration:
 
 $("#header-title").animo('blur', {duration: 3, amount: 1});
 
+$.material.init();
