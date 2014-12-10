@@ -1,5 +1,5 @@
 <nav>
-    <ul class="nav nav-tabs withripple nav-stacked">
+    <ul class="nav nav-tabs nav-stacked">
         {% url "mainsite:home" as current %}
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Home</a>
