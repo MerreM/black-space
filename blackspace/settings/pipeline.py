@@ -4,6 +4,10 @@ PIPELINE_CSS = {
         'source_filenames': (
             'less/bootstrap.less',
             'css/*.css',
+            'less/material.less',
+            'less/material_wfont.less',
+            'less/ripples.less',
+            
         ),
         'output_filename': 'css/style.min.css',
         'extra_context': {
@@ -16,6 +20,8 @@ PIPELINE_JS = {
     'main': {
         'source_filenames': (
           'js/jquery-2.1.1.js',
+          'js/ripples.js',
+          'js/material.js',
           'js/bootstrap/transition.js',
           'js/bootstrap/alert.js',
           'js/bootstrap/button.js',
@@ -38,6 +44,8 @@ PIPELINE_JS = {
     'playful': {
         'source_filenames': (
           'js/jquery-2.1.1.js',
+          'js/ripples.js',
+          'js/material.js',
           'js/bootstrap/transition.js',
           'js/bootstrap/alert.js',
           'js/bootstrap/button.js',
