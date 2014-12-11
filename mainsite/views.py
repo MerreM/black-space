@@ -11,6 +11,9 @@ def home(request):
         "latest_post":latest_post
         })
 
+def particles(request):
+    return render(request,"particles.html",{})
+
 def about_me(request):
     return render(request,"about_me.html",{})
 

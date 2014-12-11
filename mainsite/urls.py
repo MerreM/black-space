@@ -8,4 +8,5 @@ urlpatterns = patterns('mainsite.views',
     url(r'^about_me/$', 'about_me', name='about_me'),
     url(r'^canvas/$', 'canvas', name='canvas'),
     url(r'^life/$', 'life', name='life'),
+    url(r'^particles/$', 'particles', name='particles'),
 )

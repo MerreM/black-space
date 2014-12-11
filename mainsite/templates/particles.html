@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% load compressed %}
+{% block 'content' %}
+<div>
+    <h4>Controls</h4>
+    <div >Left and right control strobe speed.</div>
+    <div >Left click resets. Middle disconnects mouse follow mode.</div>
+    <div >Left and right control strobe speed.</div>
+    <div >[ and ] control alpha.</div>
+    <div >Clicking resets and changes mode</div>
+    <div >P Pauses</div>
+    <div >S turns off coloured particles</div>
+    <div id="frequency-control" class="text-center">Frequency </div>
+    <div id="alpha-control" class="text-center">Alpha </div>
+</div>
+<hr/>
+{% endblock %}
+{% block after-content %}
+<hr/>
+<div>
+    <canvas id="playful" height="500px;"></canvas>
+</div>
+{% endblock %}
+{% block main_js %}
+{% compressed_js 'playful' %}
+{% endblock %}
