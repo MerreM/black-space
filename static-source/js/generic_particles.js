@@ -180,7 +180,7 @@ function create_experiment(options){
             // update
             update(cloud);
             // clear
-            context.fillStyle = "rgba(238, 238, 238, "+ALPHA+")"
+            context.fillStyle = "rgba(52, 52, 52, "+ALPHA+")"
             context.fillRect(0,0,MAX_X,MAX_Y);
 
             // draw stuff

@@ -124,7 +124,7 @@ function changeColour(i){
     if(i!=null && !this.star){
       ctx.strokeStyle = changeColour(i);
     } else if (this.star){
-      ctx.strokeStyle="#111"
+      ctx.strokeStyle="#fff"
     } else {
       ctx.strokeStyle = changeColour(this.phase);
     }
@@ -188,7 +188,7 @@ function changeColour(i){
   function draw(){
     requestAnimationFrame(draw);
     if(animate){
-      ctx.fillStyle = "rgba(238, 238, 238, "+ALPHA.toFixed(2)+")"
+      ctx.fillStyle = "rgba(52, 52, 52, "+ALPHA.toFixed(2)+")"
       ctx.fillRect(0,0,width,height);
       for (var i = 0; i < stars.length; i++) {
         stars[i].draw();
