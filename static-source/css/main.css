@@ -172,7 +172,7 @@ body {
           transform: translateZ( -100px ) rotateX(   90deg );
 }
 
-/*MIkes 3d Text bit*/
+/*Mikes 3d Text bit*/
 
 .text-side{
   display: block;
@@ -196,4 +196,8 @@ body {
      -moz-transition: -moz-transform 1s;
        -o-transition: -o-transform 1s;
           transition: transform 1s;
+}
+
+.header-title {
+  font-weight: 900;
 }
