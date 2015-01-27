@@ -65,7 +65,7 @@ def post(request,catergory=None,slug=None):
 def read_post(request,catergory=None,slug=None,percent=0):
     found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
     found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug,published=True)
-    ip_address = request.META.get("REMOTE_ADDR")
+    ip_address = get_user_ip(request)
     read_item_exists = Readit.objects.filter(user_id=ip_address,post=found_post).exists()
     if read_item_exists:
         read_item =  Readit.objects.get(user_id=ip_address,post=found_post)
@@ -79,6 +79,14 @@ def read_post(request,catergory=None,slug=None,percent=0):
 def liked_post(request,catergory=None,slug=None):
     found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
     found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug)
-    if not Vote.objects.filter(user_id=request.META["REMOTE_ADDR"],post=found_post).exists():
-        Vote.objects.create(user_id=request.META["REMOTE_ADDR"],post=found_post)
+    ip_addr = get_user_ip(request)
+    if not Vote.objects.filter(user_id=ip_addr,post=found_post).exists():
+        Vote.objects.create(user_id=ip_addr,post=found_post)
     return HttpResponse(status=203)
+
+def get_user_ip(request):
+    ip_addr = request.META.get("HTTP_CF_CONNECTING_IP")
+    if ip_addr:
+        return ip_addr
+    else:
+        return request.META.get("REMOTE_ADDR")
