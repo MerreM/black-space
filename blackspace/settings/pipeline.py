@@ -20,6 +20,7 @@ PIPELINE_JS = {
     'main': {
         'source_filenames': (
           'js/jquery-2.1.1.js',
+          'js/inview.js',
           'js/ripples.js',
           'js/material.js',
           'js/bootstrap/transition.js',

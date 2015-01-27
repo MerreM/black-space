@@ -3,10 +3,11 @@
 <div>
     <h2>{{post.title}}</h2>
     <h6>Author - {{post.author}}</h6>
-    <div>
+    <div class="writing-post">
         {% autoescape off %}
         {{post.markdown_post}}
         {% endautoescape %}
     </div>
+    <button class="btn btn-primary liked">I quite enjoyed that</button>
 </div>
 {% endblock %}
