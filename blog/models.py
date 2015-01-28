@@ -49,15 +49,23 @@ class Readit(models.Model):
     percentage_read = models.DecimalField(max_digits=5, decimal_places=2)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
     def __unicode__(self):
         return u'User from %s read %s%% of %s'%(self.user_id,self.percentage_read,self.post.title)
+
+    class Meta:
+        unique_together = (("user_id", "post"),)
 
 
 class Vote(models.Model):
     user_id = models.IPAddressField()
     post = models.ForeignKey(Post)
     created = models.DateTimeField(auto_now_add=True)
+
     def __unicode__(self):
         return u'User from %s wants more'%(self.user_id)
+
+    class Meta:
+        unique_together = (("user_id", "post"),)
 
 
