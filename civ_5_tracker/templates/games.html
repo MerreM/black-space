@@ -26,11 +26,21 @@
                     {{player.name}}
                     </a>
                     </br>
+                {% empty %}
+                 None!
                 {% endfor %}
                 </td>
                 <!-- {{game}} -->
             </tr>
+            {% empty %}
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
             {% endfor %}
+
         </table>
         
     </div>

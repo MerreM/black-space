@@ -16,6 +16,9 @@
                     <td>{{game.game}}</td>
                     <td>{{game.circumstances}}</td>
                 </tr>
+                {% empty %}
+                    <td>None</td>
+                    <td>None</td>
                 {% endfor %}
             </table>
         </div>
