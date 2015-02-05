@@ -1,0 +1,38 @@
+{% extends "wide_base.html" %}
+{% block 'content' %}
+<div>
+
+    <div class="col-md-12">
+
+        <table class=table>
+            <tr>
+                <th>Map Type</th>
+                <th>Map Size</th>
+                <th>Ai Players</th>
+                <th>Date Begun</th>
+                <th>Date Finished</th>
+                <th>Winner(s)</th>
+            </tr>
+            {% for game in games %}
+            <tr>
+                <td>{{game.map_type}}</td>
+                <td>{{game.size}}</td>
+                <td>{{game.ai_players}}</td>
+                <td>{{game.begun_date}}</td>
+                <td>{{game.finished_date}}</td>
+                <td>
+                {% for player in game.victor.all %}
+                    <a href="{% url "games:player" player_name=player.name %}">
+                    {{player.name}}
+                    </a>
+                    </br>
+                {% endfor %}
+                </td>
+                <!-- {{game}} -->
+            </tr>
+            {% endfor %}
+        </table>
+        
+    </div>
+</div>
+{% endblock %}

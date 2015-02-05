@@ -1,0 +1,24 @@
+{% extends "wide_base.html" %}
+{% block 'content' %}
+<div>
+
+    <div class="col-md-12">
+        <h2>{{player}} - Games: {{win_count}} Wins: {{win_count}}</h2>
+        <div class="container col-md-12">
+            <h4>Win List</h4>
+            <table class=table>
+                <tr>
+                    <th>Game</th>
+                    <th>Notes</th>
+                </tr>
+                {% for game in wins %}
+                <tr>
+                    <td>{{game.game}}</td>
+                    <td>{{game.circumstances}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "wide_base.html" %}
+{% block 'content' %}
+<div>
+
+    <div class="col-md-12">
+        <h2>Victory List</h2>
+        <div class="container col-md-12">
+            <table class=table>
+                <tr>
+                    <th>Game</th>
+                    <th>Winner(s)</th>
+                    <th>Notes</th>
+                </tr>
+                {% for game in games %}
+                <tr>
+                    <td>                    
+                        {{game}}
+                    </td>
+                    <td>
+                        {% for vic in game.won.all %}
+                        <a href="{% url "games:player" player_name=vic.person.name %}">
+                        {{vic.person.name}}
+                        </a>
+                        <br/>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for vic in game.won.all %}
+                        {{vic.circumstances}}
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

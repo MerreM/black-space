@@ -16,6 +16,17 @@
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Game of Liff</a>
         </li>
+        {% url "games:games" as current %}
+        <li class="dropdown {% if current ==  request.path %}active{% endif %}">
+                <a href="{{current}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Civ Stats<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{{current}}">Game List</a></li>
+                {% url "games:players" as current %}
+                <li><a href="{{current}}" class={% if current ==  request.path %}active{% endif %}>Players</a></li>
+                {% url "games:victories" as current %}
+                <li><a href="{{current}}" class={% if current ==  request.path %}active{% endif %}>Victories</a></li>
+            </ul>
+        </li>
         {% url "blog:writing" as current %}
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Writing</a>
