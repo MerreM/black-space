@@ -6,6 +6,7 @@
 
         <table class=table>
             <tr>
+                <th>Players</th>
                 <th>Map Type</th>
                 <th>Map Size</th>
                 <th>Ai Players</th>
@@ -15,6 +16,16 @@
             </tr>
             {% for game in games %}
             <tr>
+                    <td>
+                {% for player in game.players.all %}
+                    <a href="{% url "games:player" player_name=player.name %}">
+                    {{player.name}}
+                    </a>
+                    </br>
+                {% empty %}
+                 None!
+                {% endfor %}
+                </td>
                 <td>{{game.map_type}}</td>
                 <td>{{game.size}}</td>
                 <td>{{game.ai_players}}</td>

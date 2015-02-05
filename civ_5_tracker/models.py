@@ -17,6 +17,10 @@ class Game(models.Model):
     def __unicode__(self):
         return u"%s players on a %s %s map"%(self.players.all().count(), self.size, self.map_type)
 
+    class Meta:
+        get_latest_by = "finished_date"
+        ordering = [ "finished_date","begun_date"]
+
 class Victor(models.Model):
     person = models.ForeignKey(Player)
     game = models.ForeignKey(Game,related_name="won")
