@@ -8,6 +8,7 @@ class Player(models.Model):
 class Game(models.Model):
     players = models.ManyToManyField(Player,through="Participant",related_name="player")
     victor = models.ManyToManyField(Player,through="Victor",related_name="winner")
+    speed = models.CharField(max_length=32,blank=True,null=True)
     map_type = models.CharField(max_length=64)
     size = models.CharField(max_length=64)
     ai_players = models.IntegerField()

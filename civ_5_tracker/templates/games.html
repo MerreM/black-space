@@ -4,9 +4,10 @@
 
     <div class="col-md-12">
 
-        <table class=table>
+        <table class="table">
             <tr>
                 <th>Players</th>
+                <th>Game Speed</th>
                 <th>Map Type</th>
                 <th>Map Size</th>
                 <th>Ai Players</th>
@@ -26,6 +27,7 @@
                  None!
                 {% endfor %}
                 </td>
+                <td>{{game.speed}}</td>
                 <td>{{game.map_type}}</td>
                 <td>{{game.size}}</td>
                 <td>{{game.ai_players}}</td>
