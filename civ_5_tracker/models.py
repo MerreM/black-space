@@ -20,7 +20,7 @@ class Game(models.Model):
 
     class Meta:
         get_latest_by = "finished_date"
-        ordering = [ "finished_date","begun_date"]
+        ordering = [ "begun_date","finished_date"]
 
 class Victor(models.Model):
     person = models.ForeignKey(Player)
