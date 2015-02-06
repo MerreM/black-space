@@ -26,6 +26,7 @@ class Victor(models.Model):
     person = models.ForeignKey(Player)
     game = models.ForeignKey(Game,related_name="won")
     circumstances = models.TextField()
+    turn = models.IntegerField()
     def __unicode__(self):
         return u"%s on %s"%(self.person.name,self.game.finished_date)
 

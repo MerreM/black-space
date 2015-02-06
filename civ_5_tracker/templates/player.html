@@ -9,14 +9,17 @@
             <table class=table>
                 <tr>
                     <th>Game</th>
+                    <th>Turn</th>
                     <th>Notes</th>
                 </tr>
                 {% for game in wins %}
                 <tr>
                     <td>{{game.game}}</td>
+                    <td>{{game.turn}}</td>
                     <td>{{game.circumstances}}</td>
                 </tr>
                 {% empty %}
+                    <td>None</td>
                     <td>None</td>
                     <td>None</td>
                 {% endfor %}
