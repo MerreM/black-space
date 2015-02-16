@@ -4,6 +4,7 @@ from civ_5_tracker.models import Player
 from civ_5_tracker.models import Game
 from civ_5_tracker.models import Victor
 from civ_5_tracker.models import Participant
+from civ_5_tracker.models import BattleReport
 
 # Register your models here.
 
@@ -22,3 +23,4 @@ admin.site.register(Game, GameAdmin)
 admin.site.register(Player)
 admin.site.register(Victor)
 admin.site.register(Participant)
+admin.site.register(BattleReport)

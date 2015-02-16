@@ -32,6 +32,11 @@ def catergory(request,catergory):
     }
     return render(request,"catergory.html",context)
 
+def search(request):   
+    tags_string = request.POST.get("search").replace(",","/")
+    return tags(request,tags_string)
+
+
 def tags(request,tags):
     split_tags = tags.split("/")
     query = Q()

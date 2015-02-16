@@ -2,7 +2,7 @@
 {% block 'content' %}
 <div>
     
-    <h2>Tags -{% for tag in tags %} {{tag}}{% endfor %}</h2>
+    <h2>Tags -{% for tag in tags %} {{tag}} {% empty %} None Found!{% endfor %}</h2>
 
     <div>
         {% for post in posts %}

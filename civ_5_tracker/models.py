@@ -39,3 +39,16 @@ class Participant(models.Model):
 
     def __unicode__(self):
         return "%s playing %s" % (self.person.name,self.civ)
+
+class BattleReport(models.Model):
+    game = models.ForeignKey(Game)
+    author = models.ForeignKey(Player,null=True)
+    title = models.CharField(max_length=64)
+    report = models.TextField()
+    published = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        get_latest_by = "created"
+        ordering = ["created"]
