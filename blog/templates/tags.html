@@ -20,13 +20,15 @@
                 {% endif %}
             </div>
             <div class="panel-body">
+                 <p class=text-info>
                 {% autoescape off %}
                 {{post.post | truncatewords:15 }} (contd.)
                 {% endautoescape %}
+                </p>
                 <div>
-                {% for tag in post.tags.all %}
-                <span class="label label-info"><a href="{% url 'blog:tags' tags=tag %}">{{tag}}</a></span>
-                {% endfor %}
+                    {% for tag in post.tags.all %}
+                    <span class="label label-info"><a href="{% url 'blog:tags' tags=tag %}">{{tag}}</a></span>
+                    {% endfor %}
                 </div>
             </div>
 

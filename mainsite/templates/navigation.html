@@ -38,13 +38,11 @@
     </ul>
     <form class="navbar-form navbar-left" role="search" action="{% url "blog:search" %}" method=post>
         {% csrf_token %}
-        <div class="form-group">
-            <div class="input-group">
-              <input type="text" class="form-control" name="search" placeholder="Search tags...">
-             <div class=".input-group-addon">
-                <input type=submit class="btn btn-info" value="Go!">
-            </div>
-            </div>
+        <div class="input-group">
+            <input type="text" class="form-control" name="search" placeholder="Search tags..."/>
+        </div>
+        <div class="input-group">
+            <button type=submit  class="btn btn-info">Go!</button>
         </div>
     </form>
 </nav>
