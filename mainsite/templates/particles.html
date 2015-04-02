@@ -1,4 +1,4 @@
-{% extends "base.html" %}{% load compressed %}
+{% extends "base.html" %}{% load pipeline %}
 {% block 'content' %}
 <div>
     <h4>Controls</h4>
@@ -21,5 +21,5 @@
 </div>
 {% endblock %}
 {% block main_js %}
-{% compressed_js 'playful' %}
+{% javascript 'playful' %}
 {% endblock %}

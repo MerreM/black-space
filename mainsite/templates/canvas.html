@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load compressed %}{% load staticfiles %}{% load webdesign %}
+{% load pipeline %}{% load staticfiles %}{% load webdesign %}
 {% block 'after-head' %}{% compressed_css 'animo' %}{% endblock %}
 {% block 'content' %}
 <h4>Experiment 3 - Animo (Click the text)</h4>
@@ -36,5 +36,5 @@
 {% block experiment %}
 {% endblock %}
 {% block main_js %}
-{% compressed_js 'canvas' %}
+{% javascript 'canvas' %}
 {% endblock %}

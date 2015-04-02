@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load compressed %}{% load staticfiles %}{% load webdesign %}
-{% block 'after-head' %}{% compressed_css 'animo' %}{% endblock %}
+{% load pipeline %}{% load staticfiles %}{% load webdesign %}
+{% block 'after-head' %}{% compress css 'animo' %}{% endblock %}
 {% block 'content' %}
 <h4>Game of Life</h4>
 <div class="fill">
@@ -11,5 +11,5 @@
 {% block experiment %}
 {% endblock %}
 {% block main_js %}
-{% compressed_js 'life' %}
+{% javascript 'life' %}
 {% endblock %}

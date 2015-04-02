@@ -1,4 +1,4 @@
-{% load compressed %}
+{% load pipeline %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -12,8 +12,8 @@
         <meta name=description content="">
         <meta name=viewport content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        {% compressed_css 'main' %}
-        {% compressed_css 'animo' %}
+        {% stylesheet 'main' %}
+        {% stylesheet 'animo' %}
         {% block 'after-head' %}
         {% endblock %}
     </head>
@@ -42,10 +42,10 @@
             {% endblock %}
         </div>
         {% include "footer.html" %}
-        {% compressed_js 'bootstrap' %}
+        {% javascript 'bootstrap' %}
         {% block main_js %}
-        {% compressed_js 'animo' %}
-        {% compressed_js 'main' %}
+        {% javascript 'animo' %}
+        {% javascript 'main' %}
         {% endblock %}
     </body>
 </html>
