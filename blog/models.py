@@ -44,7 +44,7 @@ class Post(models.Model):
         get_latest_by = 'priority'
 
 class Readit(models.Model):
-    user_id = models.IPAddressField()
+    user_id = models.GenericIPAddressField()
     post = models.ForeignKey(Post)
     percentage_read = models.DecimalField(max_digits=5, decimal_places=2)
     created = models.DateTimeField(auto_now_add=True)
@@ -58,7 +58,7 @@ class Readit(models.Model):
 
 
 class Vote(models.Model):
-    user_id = models.IPAddressField()
+    user_id = models.GenericIPAddressField()
     post = models.ForeignKey(Post)
     created = models.DateTimeField(auto_now_add=True)
 
