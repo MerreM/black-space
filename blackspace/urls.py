@@ -10,7 +10,6 @@ urlpatterns = patterns('',
     url(r'^$', 'mainsite.views.home', name='home'),
     url(r'^', include('mainsite.urls', namespace='mainsite')),
     url(r'^writing/', include('blog.urls', namespace='blog')),
-    url(r'^projects/(?P<path>.*)', 'redirect_to', {'url': '/writing/%(path)s'}),
     url(r'^games/', include('civ_5_tracker.urls', namespace='games')),
     # url(r'^blog/', include('blog.urls')),
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
