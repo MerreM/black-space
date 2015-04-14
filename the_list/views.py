@@ -12,7 +12,7 @@ def algorithim(search_term):
     THE_DECIDER = random.randint(0,100)
     if (THE_DECIDER > 75):
         entry.active=True
-    entry.save()
+        entry.save()
     return entry
 
 def the_list(request,page=1):
