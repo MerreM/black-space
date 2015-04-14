@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from the_list.models import ListEntry
+from django.views.decorators.cache import never_cache
 import random
 
 def algorithim(search_term):
@@ -11,8 +12,8 @@ def algorithim(search_term):
     THE_DECIDER = random.randint(0,100)
     if (THE_DECIDER > 75):
         entry.active=True
-        entry.save()
-        return entry
+    entry.save()
+    return entry
 
 def the_list(request,page=1):
     the_list = ListEntry.objects.filter(active=True)
@@ -27,6 +28,7 @@ def the_list(request,page=1):
     print offset 
     return render(request,"the_list.html",{"current_list":current_list,"offset":offset})
 
+@never_cache
 def is_it_on_the_list(request):
     context = {}
     if request.POST:
