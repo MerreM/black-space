@@ -2,5 +2,8 @@ from django.contrib import admin
 
 from the_list.models import ListEntry
 
-admin.site.register(ListEntry)
+class ListEntryAdmin(admin.ModelAdmin):
+    list_display = ('entry', 'active')
+
+admin.site.register(ListEntry,ListEntryAdmin)
 
