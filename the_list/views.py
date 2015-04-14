@@ -32,7 +32,7 @@ def the_list(request,page=1):
 def is_it_on_the_list(request):
     context = {}
     if request.POST:
-        query = request.POST.get("query","").strip()
+        query = request.POST.get("query","").strip().lower()
         if not query:
             return render(request,"on_the_list.html")
         result = algorithim(query)
