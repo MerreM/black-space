@@ -13,9 +13,6 @@
             isn't on the list
         {% endif %}
     {% endif %}
-    <div>
-        <h4>
-    </div>
     <form class="form-inline" action="{% url "the_list:on_the_list" %}" method=post>
         {% csrf_token %}
         <div class="form-group">
@@ -27,8 +24,10 @@
         <div class="form-group">
             on the list?
         </div>
-        <div class="input-group">
-            <button type=submit  class="btn btn-info">ASK</button>
+        <div class=col-md-12>
+            <div class="form-group">
+                <button type=submit  class="btn btn-info">ASK</button>
+            </div>
         </div>
     </form>
 </div>
