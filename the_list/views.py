@@ -16,7 +16,7 @@ def algorithim(search_term):
 
 def the_list(request,page=1):
     the_list = ListEntry.objects.filter(active=True)
-    paginator = Paginator(the_list, 50)
+    paginator = Paginator(the_list, 10)
     try:
         current_list = paginator.page(page)
     except PageNotAnInteger:

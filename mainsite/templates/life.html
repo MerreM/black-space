@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load pipeline %}{% load staticfiles %}{% load webdesign %}
-{% block 'after-head' %}{% compress css 'animo' %}{% endblock %}
+{% block 'after-head' %}{% stylesheet 'animo' %}{% endblock %}
 {% block 'content' %}
 <h4>Game of Life</h4>
 <div class="fill">

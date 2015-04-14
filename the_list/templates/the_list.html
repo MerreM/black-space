@@ -7,6 +7,24 @@
             <h3 class="text-center">{{ forloop.counter |add:offset }}. {{ item }}</h3>
         {% endfor %}
     </div>
+    <hr/>
+    <div class="col-md-12 text-center">
+        <div class="col-md-2">
+        {% if current_list.has_previous %}
+            <a href="{% url "the_list:the_list_page" page=current_list.previous_page_number %}"> &lt;&lt; Previous</a>
+        {% endif %}
+        </div>
+
+        <div class="col-md-8">
+            Page {{ current_list.number }} of {{ current_list.paginator.num_pages }}
+        </div>
+
+        <div class="col-md-2">
+        {% if current_list.has_next %}
+            <a href="{% url "the_list:the_list_page" page=current_list.next_page_number %}">Next&gt;&gt;</a>
+        {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block experiement %}
