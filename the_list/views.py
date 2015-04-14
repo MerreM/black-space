@@ -6,7 +6,7 @@ import random
 
 def algorithim(search_term):
     entry,created = ListEntry.objects.get_or_create(entry=search_term)
-    if created:
+    if not created:
          return entry
     random.seed()
     THE_DECIDER = random.randint(0,100)
