@@ -33,7 +33,7 @@ def player(request,player_name):
 
 
 def victories(request):
-    games = Game.objects.filter(victor__in=Victor.objects.all())
+    games = Game.objects.filter(victor__in=Player.objects.all())
     players = Player.objects.all()
     return render(request,"victories.html",{"games":games})
 
