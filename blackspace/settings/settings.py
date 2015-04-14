@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'blog',
     'mainsite',
     'civ_5_tracker',
+    'the_list',
 )
 
 MIDDLEWARE_CLASSES = [
