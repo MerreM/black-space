@@ -26,7 +26,7 @@ $(document).ready(function(){
   var mode = false;
   var animate = true;
   var ALPHA = 1.0;
-  var ParticleCount = 500;
+  var ParticleCount = 100;
   var width = $(display).parent().width()
   var height = $(display).parent().height()
   var mouse = { x: width * 0.5, y: height * 0.5 };
