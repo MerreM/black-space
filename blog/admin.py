@@ -18,5 +18,5 @@ class ReaditAdmin(admin.ModelAdmin):
 admin.site.register(Post,PostAdmin)
 admin.site.register(Tag)
 admin.site.register(Catergory)
-admin.site.register(Readit)
+admin.site.register(Readit,ReaditAdmin)
 admin.site.register(Vote)
