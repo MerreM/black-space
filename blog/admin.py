@@ -11,6 +11,10 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ["catergories","published"]
     list_editable = ["priority"]
 
+class ReaditAdmin(admin.ModelAdmin):
+    list_display = ["user_id","percentage_read","created","modified"]
+    list_filter = ["user_id","percentage_read"]
+
 admin.site.register(Post,PostAdmin)
 admin.site.register(Tag)
 admin.site.register(Catergory)
