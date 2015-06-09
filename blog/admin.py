@@ -15,8 +15,12 @@ class ReaditAdmin(admin.ModelAdmin):
     list_display = ["user_id","percentage_read","created","modified"]
     list_filter = ["user_id","percentage_read"]
 
+class VoteAdmin(admin.ModelAdmin):
+    list_display = ["user_id","post","created"]
+    list_filter = ["user_id","post","created"]
+
 admin.site.register(Post,PostAdmin)
 admin.site.register(Tag)
 admin.site.register(Catergory)
 admin.site.register(Readit,ReaditAdmin)
-admin.site.register(Vote)
+admin.site.register(Vote, VoteAdmin)
