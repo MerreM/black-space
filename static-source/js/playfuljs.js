@@ -27,8 +27,8 @@ $(document).ready(function(){
   var animate = true;
   var ALPHA = 1.0;
   var ParticleCount = 100;
-  var width = $(display).parent().width()
-  var height = $(display).parent().height()
+  var width = $(display).parent().width();
+  var height = $(display).parent().height();
   var mouse = { x: width * 0.5, y: height * 0.5 };
   var P_TAIL_SIZE = 5
   var S_TAIL_SIZE = 5
@@ -46,7 +46,7 @@ $(document).ready(function(){
   }
 
   $("#playful").on("click",function(e){
-    console.log(e);
+    // console.log(e);
     if(e.which==1){
       init();
       mode = !mode;
