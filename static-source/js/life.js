@@ -61,6 +61,9 @@ $(document).ready(function(){
             newGrid[x] = new Array(grid[0].length);
             for(var y=0; y<grid[x].length; y++){
                 newGrid[x][y] = getNeighbours(grid,x,y,grid[x][y]);
+                if(newGrid[x][y]!=grid[x][y]){
+                    drawCell(x,y,newGrid[x][y]);
+                }
             }
         }
         return newGrid;
@@ -87,16 +90,22 @@ $(document).ready(function(){
         }
         return grid;
     }
+
+    function drawCell(x, y, alive){
+        // console.log(x,y, alive);
+        context.beginPath();
+        context.rect(x*GRID_SIZE,y*GRID_SIZE,GRID_SIZE,GRID_SIZE);
+        context.fillStyle = alive ? "black" : "white";
+        context.fill();
+        context.strokeStyle = GRID_COLOUR;
+        context.lineWidth = LINE_WIDTH;
+        context.stroke();
+    }
+
     function drawGrid(context,grid){
         for(var x=0; x<(grid.length); x++){
             for(var y =0; y<(grid[x].length); y++){
-                context.beginPath();
-                context.rect(x*GRID_SIZE,y*GRID_SIZE,(x+1)*GRID_SIZE,(y+1)*GRID_SIZE);
-                context.fillStyle = grid[x][y] ? "black" : "white";
-                context.fill();
-                context.strokeStyle = GRID_COLOUR;
-                context.lineWidth = LINE_WIDTH;
-                context.stroke();
+                drawCell(x,y,grid[x][y]);
             }
         }
     }
@@ -107,7 +116,7 @@ $(document).ready(function(){
     window.requestAnimFrame = function(callback) {
         return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
         function(callback) {
-            window.setTimeout(callback, 3000);
+            window.setTimeout(callback, 6000);
         };
     }();
     canvas.on('click', function(evt){
@@ -119,16 +128,13 @@ $(document).ready(function(){
         if(ANIMATE){
             grid = generateNextGeneration(grid);
         }
-        window.setTimeout(stepEngine, 100);
     }
     function animate(){
-        if(ANIMATE){
-            drawGrid(context,grid);
-        }
-        requestAnimFrame(animate);
+        stepEngine()
+         window.setTimeout(animate, 100);
+
     }
     animate();
-    stepEngine();
     $(document).keydown(function(evt) {
         if (evt.keyCode == 80) {
           ANIMATE = !ANIMATE;
