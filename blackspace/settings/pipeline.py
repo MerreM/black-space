@@ -8,7 +8,7 @@ PIPELINE_CSS = {
             'css/*.css',
             
         ),
-        # 'output_filename': 'css/style.min.css',
+        'output_filename': 'css/style.min.css',
         'extra_context': {
             'media': 'screen,projection',
         },
