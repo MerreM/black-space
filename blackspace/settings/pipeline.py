@@ -126,6 +126,8 @@ for key, value in PIPELINE_JS.items():
     value['extra_context'] = {'async':True}
   PIPELINE_JS[key] = value
 
+PIPELINE_ROOT = os.path.join(BASE_DIR,"static-source")
+
 PIPELINE_COMPILERS = (
   'pipeline.compilers.less.LessCompiler',
 )
