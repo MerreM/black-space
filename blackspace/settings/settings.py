@@ -97,12 +97,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    "static-source",
+    os.path.join(BASE_DIR,"../static-source"),
 )
 
-STATIC_ROOT = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR,"static")
+print "Static root", STATIC_ROOT
 
 MEDIA_ROOT = 'uploads/'  
 MEDIA_URL = '/media/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
 
 ANONYMOUS_USER_ID = 0

@@ -1,15 +1,14 @@
 from local import DEBUG
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PIPELINE_CSS = {
     'main': {
         'source_filenames': (
             'less/bootstrap.less',
             'css/*.css',
-            'less/material.less',
-            'less/material_wfont.less',
-            'less/ripples.less',
             
         ),
-        'output_filename': 'css/style.min.css',
+        # 'output_filename': 'css/style.min.css',
         'extra_context': {
             'media': 'screen,projection',
         },
@@ -119,10 +118,15 @@ PIPELINE_JS = {
     },
 }
 
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
 for key, value in PIPELINE_JS.items():
   if not DEBUG:
     value['extra_context'] = {'async':True}
   PIPELINE_JS[key] = value
+
+PIPELINE_ROOT = os.path.join(BASE_DIR,"static-source")
 
 PIPELINE_COMPILERS = (
   'pipeline.compilers.less.LessCompiler',
@@ -131,6 +135,5 @@ PIPELINE_COMPILERS = (
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.uglifyjs.UglifyJSCompressor'
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 # STATICFILES_STORAGE = 'blackspace.pipeline_storage.GZIPCachedStorage'

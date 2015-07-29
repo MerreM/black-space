@@ -2,9 +2,14 @@
 {% load pipeline %}{% load staticfiles %}{% load webdesign %}
 {% block 'after-head' %}{% stylesheet 'animo' %}{% endblock %}
 {% block 'content' %}
-<h4>Game of Life</h4>
+<h1 class="text-center">Game of Life</h1>
+<div class="text-center">
+    <h4>Controls</h4>
+    <p>"P" Pauses</p>
+    <p>Click a cell to change it's state.</p>
+</div>
 <div class="fill">
-    <canvas id="game_of_life" width="480px" height="400px"></canvas>
+    <canvas class="center-block" id="game_of_life" width="480px" height="400px"></canvas>
 </div>
 <hr/>
 {% endblock %}

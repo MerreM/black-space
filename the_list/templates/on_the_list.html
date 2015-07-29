@@ -1,35 +1,34 @@
-{% extends "wide_base.html" %}
+{% extends "base.html" %}
 {% block 'content' %}
-<div  >
-    <h2 class="text-center"><a href="{% url "the_list:the_list"%}">The List</a></h2>
-    <div class="text-center">
-    {% if result %}
-        {% if result.active %}
-            Yes... 
-            {{result.entry}}
-            is on the list
-        {% else %}
-            No... 
-            {{result.entry}}
-            isn't on the list
-        {% endif %}
+<h2 class="text-center"><a href="{% url "the_list:the_list"%}">The List</a></h2>
+<div class="text-center">
+{% if result %}
+    {% if result.active %}
+        Yes... 
+        {{result.entry}}
+        is on the list
+    {% else %}
+        No... 
+        {{result.entry}}
+        isn't on the list
     {% endif %}
-    </div>
-    <div>
-        <p>
-        This is a place where you can ask a "secret" algorithim is something is "The List" and it'll remember it's repsonses.
-        Once it's on "The List" it'll be on the list forever!
-        </p>
-        <p>
-        I'm hoping to add some Natrual Language processing to this at some point.
-        However at  the moment it's pretty dumb and I imagine will slowly be filled with profainity.
-        </p>
-        <p>
-            You can see hwat's on the list by clicking "The List" above iths text.
-        </p>
-        
-    </div>
-    <form class="text-center form-inline" action="{% url "the_list:on_the_list" %}" method=post>
+{% endif %}
+</div>
+<div>
+    <p>
+    This is a place where you can ask a "secret" algorithm is something is "The List" and it'll remember it's responses.
+    Once it's on "The List" it'll be on the list forever!
+    </p>
+    <p>
+    I'm hoping to add some Natural Language processing to this at some point.
+    However at  the moment it's pretty dumb and I imagine will slowly be filled with profanity.
+    </p>
+    <p>
+        You can see what's on the list by clicking "The List" above this text.
+    </p>
+</div>
+<div class=container>
+    <form class="text-center" action="{% url "the_list:on_the_list" %}" method=post>
         {% csrf_token %}
         <div class="form-group">
             Is
@@ -47,6 +46,4 @@
         </div>
     </form>
 </div>
-{% endblock %}
-{% block experiement %}
 {% endblock %}

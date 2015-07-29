@@ -11,7 +11,7 @@ html {
   position: relative;
   min-height: 100%;
 }
-body {
+#above-footer {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
@@ -200,4 +200,21 @@ body {
 
 .header-title {
   font-weight: 900;
+}
+
+html, body, .container-fluid, .row {
+    height: 100%;
+}
+
+
+@media (min-width: 992px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    /*background-color: #CCCCCC;*/
+  }
 }
