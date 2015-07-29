@@ -97,11 +97,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,"../static-source"),
+    "static-source",
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR,"static")
-print "Static root", STATIC_ROOT
 
 MEDIA_ROOT = 'uploads/'  
 MEDIA_URL = '/media/'
