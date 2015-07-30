@@ -184,9 +184,11 @@ function changeColour(i){
   }
 
   function init(){
+    stars = new Array(StarCount);
     for (var i = 0; i < StarCount; i++) {
       stars[i] = new Particle(Math.random() * width, Math.random() * height,Math.random()*2);
     }
+    particles = new Array(ParticleCount);
     for (var i = 0; i < ParticleCount; i++) {
       particles[i] = new Particle(Math.random() * width, Math.random() * height);
     }
@@ -249,6 +251,7 @@ function changeColour(i){
 
   $("#frequency-control").text("Frequency "+frequency.toFixed(2));
   $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
+  $("#particle-control").text("Particle Count "+ParticleCount);
   $(document).keydown(function(evt) {
     // console.log(evt.keyCode)
     if (evt.keyCode == 80) {
@@ -267,6 +270,18 @@ function changeColour(i){
     } else if (evt.keyCode==219){
       ALPHA-=0.1;
       $("#alpha-control").text("Alpha "+ALPHA.toFixed(2));
+    }else if (evt.keyCode==81){
+      ParticleCount = ParticleCount+100;
+      $("#particle-control").text("Particle Count "+ParticleCount);
+    }else if (evt.keyCode==87){
+      ParticleCount = ParticleCount+10;
+      $("#particle-control").text("Particle Count "+ParticleCount);
+    }else if (evt.keyCode==69){
+      ParticleCount = ParticleCount-10;
+      $("#particle-control").text("Particle Count "+ParticleCount);
+    }else if (evt.keyCode==82){
+      ParticleCount = ParticleCount-100;
+      $("#particle-control").text("Particle Count "+ParticleCount);
     }
   })
 });
