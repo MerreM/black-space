@@ -75,7 +75,7 @@ $(document).ready(function(){
         for (var x=0; x<(width); x++){
             grid[x] = new Array(height);
             for(var y=0; y<grid[x].length; y++){
-                grid[x][y] = (Math.random()*10)>9;
+                grid[x][y] = (Math.random()*10)>5;
             }
         }
         return grid;
@@ -112,6 +112,12 @@ $(document).ready(function(){
     var canvas = $("#game_of_life");
     var context = canvas[0].getContext('2d');
     var grid = generateFirstGrid(canvas.width()/GRID_SIZE,canvas.height()/GRID_SIZE);
+
+    function reset(){
+        var grid = generateFirstGrid(canvas.width()/GRID_SIZE,canvas.height()/GRID_SIZE);
+        drawGrid(context,grid);
+        return grid;
+    }
     drawGrid(context,grid);
     window.requestAnimFrame = function(callback) {
         return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
@@ -138,6 +144,8 @@ $(document).ready(function(){
     $(document).keydown(function(evt) {
         if (evt.keyCode == 80) {
           ANIMATE = !ANIMATE;
+        } else if (evt.keyCode == 82) {
+          grid = reset();
         }
     });
 });

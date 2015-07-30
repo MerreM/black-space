@@ -23,16 +23,17 @@ $(document).ready(function(){
   var stars = [];
   var frequency = 0.2;
   var count = 0;
-  var mode = false;
+  var mode = true;
   var animate = true;
   var ALPHA = 1.0;
   var ParticleCount = 100;
+  var StarCount = 100;
   var width = $(display).parent().width();
   var height = $(display).parent().height();
   var mouse = { x: width * 0.5, y: height * 0.5 };
   var actual_mouse = { x: width * 0.5, y: height * 0.5 };
-  var P_TAIL_SIZE = 5
-  var S_TAIL_SIZE = 5
+  var P_TAIL_SIZE = 5;
+  var S_TAIL_SIZE = 5;
   var NOISE = 5;
   var FOLLOW = false;
   //
@@ -67,6 +68,15 @@ $(document).ready(function(){
   function RGB2Color(r,g,b){
       return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
   }
+  function convertHex(hex,opacity){
+    hex = hex.replace('#','');
+    r = parseInt(hex.substring(0,2), 16);
+    g = parseInt(hex.substring(2,4), 16);
+    b = parseInt(hex.substring(4,6), 16);
+
+    result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+    return result;
+}
 
 function changeColour(i){
     red   = Math.sin(frequency*i + 0) * 127 + 128;
@@ -123,7 +133,7 @@ function changeColour(i){
     if(i!=null && !this.star){
       ctx.strokeStyle = changeColour(i);
     } else if (this.star){
-      ctx.strokeStyle="#fff"
+      ctx.strokeStyle="rgb(255,255,255)"
     } else {
       ctx.strokeStyle = changeColour(this.phase);
     }
@@ -158,13 +168,13 @@ function changeColour(i){
 
   Particle.prototype.draw_backup = function() {
     for (var i = 0; i < this.history.length; i++) {
+      ctx.beginPath();
       var history =this.history[i]
       if(i!=0){
         var history2 =this.history[i-1]
       }
       ctx.strokeStyle = history.colour;
       ctx.lineWidth = this.size-i;
-      ctx.beginPath();
       ctx.moveTo(history.previous_x, history.previous_y);
       if(history2!=null){
         ctx.lineTo(history2.previous_x, history2.previous_y);
@@ -174,7 +184,7 @@ function changeColour(i){
   }
 
   function init(){
-    for (var i = 0; i < ParticleCount; i++) {
+    for (var i = 0; i < StarCount; i++) {
       stars[i] = new Particle(Math.random() * width, Math.random() * height,Math.random()*2);
     }
     for (var i = 0; i < ParticleCount; i++) {
