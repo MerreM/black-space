@@ -30,6 +30,7 @@ $(document).ready(function(){
   var width = $(display).parent().width();
   var height = $(display).parent().height();
   var mouse = { x: width * 0.5, y: height * 0.5 };
+  var actual_mouse = { x: width * 0.5, y: height * 0.5 };
   var P_TAIL_SIZE = 5
   var S_TAIL_SIZE = 5
   var NOISE = 5;
@@ -37,22 +38,20 @@ $(document).ready(function(){
   //
   fitToContainer(display);
 
+
+
   function onMousemove(e,display) {
     var rect = display.getBoundingClientRect();
-    if(FOLLOW){
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    }
+    actual_mouse.x = e.clientX - rect.left;
+    actual_mouse.y = e.clientY - rect.top;
   }
 
   $("#playful").on("click",function(e){
-    // console.log(e);
     if(e.which==1){
       init();
       mode = !mode;
     } else if (e.which == 2){
       FOLLOW=!FOLLOW;
-      console.log(FOLLOW)
     }
   });
 
@@ -210,6 +209,10 @@ function changeColour(i){
   }
 
   function update(){
+    if(FOLLOW){
+      mouse.x = actual_mouse.x;
+      mouse.y = actual_mouse.y;
+    }
     if(animate){
       for (var i = 0; i < stars.length; i++) {
         stars[i].repel(mouse.x,mouse.y);
