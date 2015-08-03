@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load cache %}
+{% cache 5000 aboutme %}
 {% block 'content' %}
 <div>
     <h2>About Me...</h2>
@@ -11,6 +13,7 @@
     </div>
 </div>
 {% endblock %}
+{% endcache %}
 {% block experiement %}
     {% include "experiment.html" %}
 {% endblock %}

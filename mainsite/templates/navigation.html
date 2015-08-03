@@ -1,3 +1,4 @@
+{% load cache %}{% cache 50000 nav %}
 <nav class="text-center">
     <ul class="nav nav-tabs nav-stacked">
         {% url "mainsite:home" as current %}
@@ -50,3 +51,4 @@
         </div>
     </form> -->
 </nav>
+{% endcache %}

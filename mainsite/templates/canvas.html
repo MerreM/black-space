@@ -1,5 +1,6 @@
+
 {% extends "base.html" %}
-{% load pipeline %}{% load staticfiles %}{% load webdesign %}
+{% load pipeline %}{% load staticfiles %}{% load webdesign %}{% load cache %}{% cache 5000 canvas %}
 {% block 'after-head' %}{% stylesheet 'animo' %}{% endblock %}
 {% block 'content' %}
 <h2>Experiments</h2>
@@ -39,3 +40,4 @@
 {% block main_js %}
 {% javascript 'canvas' %}
 {% endblock %}
+<!-- {% endcache %} -->

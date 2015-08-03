@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load pipeline %}{% load staticfiles %}{% load webdesign %}
+{% load pipeline %}{% load staticfiles %}{% load webdesign %}{% load cache %}{% cache 50000 life %}
 {% block 'after-head' %}{% stylesheet 'animo' %}{% endblock %}
 {% block 'content' %}
 <h1 class="text-center">Game of Life</h1>
@@ -19,3 +19,4 @@
 {% block main_js %}
 {% javascript 'life' %}
 {% endblock %}
+{% endcache %}

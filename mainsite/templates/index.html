@@ -1,4 +1,4 @@
-{% extends "base.html" %}{% load pipeline %}
+{% extends "base.html" %}{% load pipeline %}{% load cache %}{% cache 50000 home %}
 {% block 'header' %}
 {{block.super}}
 {% endblock %}
@@ -33,3 +33,4 @@
 {% block main_js %}
 {% javascript 'playful' %}
 {% endblock %}
+{% endcache %}
