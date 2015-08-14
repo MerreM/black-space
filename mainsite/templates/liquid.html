@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load pipeline %}{% load staticfiles %}{% load webdesign %}
+{% block 'after-head' %}{% stylesheet 'animo' %}{% endblock %}
+{% block 'content' %}
+<div id="mario">
+</div>
+{% endblock %}
+{% block experiment %}
+{% endblock %}
+{% block main_js %}
+{% javascript 'liquid_fun' %}
+{% endblock %}

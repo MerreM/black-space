@@ -14,6 +14,10 @@ def home(request):
 def particles(request):
     return render(request,"particles.html",{})
 
+
+def liquid(request):
+    return render(request,"liquid.html",{})
+
 def about_me(request):
     return render(request,"about_me.html",{})
 

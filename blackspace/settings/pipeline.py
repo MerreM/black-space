@@ -116,6 +116,30 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/canvas.min.js',
     },
+    'liquid_fun': {
+        'source_filenames': (
+          'js/jquery-2.1.1.js',
+          'js/ripples.js',
+          'js/material.js',
+          'js/bootstrap/transition.js',
+          'js/bootstrap/alert.js',
+          'js/bootstrap/button.js',
+          'js/bootstrap/carousel.js',
+          'js/bootstrap/collapse.js',
+          'js/bootstrap/dropdown.js',
+          'js/bootstrap/modal.js',
+          'js/bootstrap/tooltip.js',
+          'js/bootstrap/popover.js',
+          'js/bootstrap/scrollspy.js',
+          'js/bootstrap/tab.js',
+          'js/bootstrap/affix.js',
+          # 'js/main.js',
+          'js/liquidfun/three.js',
+          'js/liquidfun/liquidfun.js',
+          'js/liquidfun/stolen.js',
+        ),
+        'output_filename': 'js/canvas.min.js',
+    },
 }
 
 
