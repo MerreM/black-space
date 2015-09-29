@@ -41,7 +41,7 @@ class Post(models.Model):
         return u'%s by %s (%s)' %(self.title,self.author,self.created)
 
     class Meta:
-        get_latest_by = 'priority'
+        get_latest_by = 'created'
 
 class Readit(models.Model):
     user_id = models.GenericIPAddressField()
