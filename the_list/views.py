@@ -25,7 +25,6 @@ def the_list(request,page=1):
     except EmptyPage:
         current_list = paginator.page(paginator.num_pages)
     offset = (current_list.number-1)*10
-    print offset 
     return render(request,"the_list.html",{"current_list":current_list,"offset":offset})
 
 @never_cache

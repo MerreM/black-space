@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 from django.conf.urls.static import static
-import settings
+import blackspace.settings
 
 urlpatterns = patterns('',
     url(r'^', include('mainsite.urls', namespace='mainsite')),
@@ -15,6 +15,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-if settings.DEBUG:
+if blackspace.settings.DEBUG:
     # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     pass

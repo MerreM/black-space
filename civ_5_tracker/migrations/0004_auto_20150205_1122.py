@@ -39,11 +39,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='game',
             name='players',
-            field=models.ManyToManyField(related_name=b'player', through='civ_5_tracker.Participant', to=b'civ_5_tracker.Player'),
+            field=models.ManyToManyField(related_name='player', through='civ_5_tracker.Participant', to='civ_5_tracker.Player'),
         ),
         migrations.AlterField(
             model_name='game',
             name='victor',
-            field=models.ManyToManyField(related_name=b'winner', through='civ_5_tracker.Victor', to=b'civ_5_tracker.Player'),
+            field=models.ManyToManyField(related_name='winner', through='civ_5_tracker.Victor', to='civ_5_tracker.Player'),
         ),
     ]

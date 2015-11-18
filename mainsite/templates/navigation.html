@@ -1,13 +1,9 @@
-{% load cache %}{% cache 50000 nav %}
+
 <nav class="text-center">
     <ul class="nav nav-tabs nav-stacked">
         {% url "mainsite:home" as current %}
         <li class="{% if current ==  request.path %}active{% endif %}">
             <a href="{{current}}">Home</a>
-        </li>
-        {% url "mainsite:liquid" as current %}
-        <li class="{% if current ==  request.path %}active{% endif %}">
-            <a href="{{current}}">Liquid</a>
         </li>
         {% url "mainsite:canvas" as current %}
         <li class="{% if current ==  request.path %}active{% endif %}">
@@ -45,14 +41,4 @@
             <a href="{{current}}">About Me</a>
         </li>
     </ul>
-<!--     <form class="navbar-form navbar-left" role="search" action="{% url "blog:search" %}" method=post>
-        {% csrf_token %}
-        <div class="input-group">
-            <input type="text" class="form-control" name="search" placeholder="Search tags..."/>
-        </div>
-        <div class="input-group">
-            <button type=submit  class="btn btn-info">Go!</button>
-        </div>
-    </form> -->
 </nav>
-{% endcache %}

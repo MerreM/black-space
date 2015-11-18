@@ -7,7 +7,7 @@ urlpatterns = patterns('mainsite.views',
     url(r'^$', 'home', name='home'),
     url(r'^about_me/$', 'about_me', name='about_me'),
     url(r'^canvas/$', 'canvas', name='canvas'),
-    url(r'^liquid/$', 'liquid', name='liquid'),
+    # url(r'^liquid/$', 'liquid', name='liquid'),
     url(r'^life/$', 'life', name='life'),
     url(r'^particles/$', 'particles', name='particles'),
 )

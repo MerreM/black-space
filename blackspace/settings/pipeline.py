@@ -1,4 +1,4 @@
-from local import DEBUG
+from .local import DEBUG
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PIPELINE_CSS = {
