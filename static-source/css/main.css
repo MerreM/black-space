@@ -14,6 +14,7 @@ html {
 #above-footer {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  padding-bottom: 60px;
 }
 #footer {
   position: absolute;

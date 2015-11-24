@@ -68,4 +68,9 @@ class Vote(models.Model):
     class Meta:
         unique_together = (("user_id", "post"),)
 
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+@receiver(pre_save, sender=Post)
+def my_handler(sender, **kwargs):
+    pass
 
