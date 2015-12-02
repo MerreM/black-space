@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^games/', include('civ_5_tracker.urls', namespace='games')),
     url(r'^the-list/', include('the_list.urls', namespace='the_list')),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+    # url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
 )
 

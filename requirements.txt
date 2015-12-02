@@ -1,5 +1,7 @@
-Django==1.8.6
+Django==1.9
+Jinja2==2.8
 Markdown==2.4
+MarkupSafe==0.23
 Pillow==2.6.1
 Werkzeug==0.11.2
 amqp==1.4.6
@@ -7,8 +9,8 @@ anyjson==0.3.3
 django-appconf==1.0.1
 django-extensions==1.5.9
 django-grappelli==2.6.3
-django-pipeline==1.4.7
-futures==2.2.0
+django-pipeline==1.5.4
+futures==3.0.3
 jsmin==2.0.11
 kombu==3.0.12
 nodeenv==0.11.0
