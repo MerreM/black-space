@@ -2,16 +2,15 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.http import HttpResponse
-from django.http import HttpResponseNotFound
 
-from blog.models import Catergory
+from blog.models import Category
 from blog.models import Post
 from blog.models import Tag
 from blog.models import Readit
 from blog.models import Vote
 
 def writing(request):
-    parent_cats = Catergory.objects.filter(visible=True,parent=None)
+    parent_cats = Category.objects.filter(visible=True,parent=None)
     posts = {}
     for cat in parent_cats:
         posts[cat]=cat.post_set.filter(published=True).order_by("id")[:3]
@@ -22,7 +21,7 @@ def writing(request):
     return render(request,"writing.html",context)
 
 def catergory(request,catergory):
-    found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
+    found_catergory = get_object_or_404(Category,visible=True,name=catergory)
     posts = Post.objects.filter(catergories__in=[found_catergory],published=True).order_by("-created")
     if request.user.is_staff:
         posts = Post.objects.filter(catergories__in=[found_catergory]).order_by("-created")
@@ -55,7 +54,7 @@ def tags(request,tags):
 
 
 def post(request,catergory=None,slug=None):
-    found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
+    found_catergory = get_object_or_404(Category,visible=True,name=catergory)
     found_post = None
     if request.user.is_staff:
         found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug)
@@ -68,7 +67,7 @@ def post(request,catergory=None,slug=None):
     return render(request,"post.html",context)
 
 def read_post(request,catergory=None,slug=None,percent=0):
-    found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
+    found_catergory = get_object_or_404(Category,visible=True,name=catergory)
     found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug,published=True)
     ip_address = get_user_ip(request)
     read_item_exists = Readit.objects.filter(user_id=ip_address,post=found_post).exists()
@@ -82,7 +81,7 @@ def read_post(request,catergory=None,slug=None,percent=0):
     return HttpResponse(status=203)
 
 def liked_post(request,catergory=None,slug=None):
-    found_catergory = get_object_or_404(Catergory,visible=True,name=catergory)
+    found_catergory = get_object_or_404(Category,visible=True,name=catergory)
     found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug)
     ip_addr = get_user_ip(request)
     if not Vote.objects.filter(user_id=ip_addr,post=found_post).exists():

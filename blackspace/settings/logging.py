@@ -5,7 +5,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/var/log/uwsgi/blackspace.debug.log',
+            'filename': './logs/blackspace.debug.log',
         },
     },
     'loggers': {

@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 
 import markdown
 
-class Catergory(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=256)
     visible = models.BooleanField(default=False)
     parent = models.ForeignKey('self',blank=True,null=True)
-    def __unicode__(self):
+    def __str__(self):
         return u'%s'%self.name
 
     class Meta:
@@ -16,7 +16,7 @@ class Catergory(models.Model):
 class Tag(models.Model):
     tag = models.CharField(max_length=64)
 
-    def __unicode__(self):
+    def __str__(self):
         return u"%s"%self.tag
 
 class Post(models.Model):
@@ -25,7 +25,7 @@ class Post(models.Model):
     slug = models.SlugField()
     post = models.TextField()
     priority = models.IntegerField(null=True)
-    catergories = models.ManyToManyField(Catergory)
+    catergories = models.ManyToManyField(Category)
     tags = models.ManyToManyField(Tag,blank=True)
     published = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
@@ -37,7 +37,7 @@ class Post(models.Model):
     def markdown_post(self):
         return markdown.markdown(self.post)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s by %s (%s)' %(self.title,self.author,self.created)
 
     class Meta:
@@ -50,7 +50,7 @@ class Readit(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'User from %s read %s%% of %s'%(self.user_id,self.percentage_read,self.post.title)
 
     class Meta:
@@ -62,7 +62,7 @@ class Vote(models.Model):
     post = models.ForeignKey(Post)
     created = models.DateTimeField(auto_now_add=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'User from %s wants more'%(self.user_id)
 
     class Meta:

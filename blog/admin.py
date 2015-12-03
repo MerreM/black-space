@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blog.models import Catergory
+from blog.models import Category
 from blog.models import Post
 from blog.models import Tag
 from blog.models import Readit
@@ -21,6 +21,6 @@ class VoteAdmin(admin.ModelAdmin):
 
 admin.site.register(Post,PostAdmin)
 admin.site.register(Tag)
-admin.site.register(Catergory)
+admin.site.register(Category)
 admin.site.register(Readit,ReaditAdmin)
 admin.site.register(Vote, VoteAdmin)
