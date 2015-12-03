@@ -6,7 +6,7 @@ class ListEntry(models.Model):
     active = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    def __unicode__(self):
+    def __str__(self):
         return u'%s'%self.entry.title()
     class Meta:
         ordering = ["id"]
