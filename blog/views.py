@@ -20,16 +20,16 @@ def writing(request):
     }
     return render(request,"writing.html",context)
 
-def catergory(request,catergory):
-    found_catergory = get_object_or_404(Category,visible=True,name=catergory)
-    posts = Post.objects.filter(catergories__in=[found_catergory],published=True).order_by("-created")
+def category(request,category):
+    found_category = get_object_or_404(Category,visible=True,name=category)
+    posts = Post.objects.filter(catergories__in=[found_category],published=True).order_by("-created")
     if request.user.is_staff:
-        posts = Post.objects.filter(catergories__in=[found_catergory]).order_by("-created")
+        posts = Post.objects.filter(catergories__in=[found_category]).order_by("-created")
     context = {
-        "catergory":found_catergory,
+        "category":found_category,
         "posts":posts,
     }
-    return render(request,"catergory.html",context)
+    return render(request,"category.html",context)
 
 def search(request):   
     tags_string = request.POST.get("search").replace(",","/")
@@ -53,22 +53,22 @@ def tags(request,tags):
 
 
 
-def post(request,catergory=None,slug=None):
-    found_catergory = get_object_or_404(Category,visible=True,name=catergory)
+def post(request,category=None,slug=None):
+    found_category = get_object_or_404(Category,visible=True,name=category)
     found_post = None
     if request.user.is_staff:
-        found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug)
+        found_post = get_object_or_404(Post,catergories=found_category,slug=slug)
     elif not request.user.is_staff:
-        found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug,published=True)
-        read_post(request,catergory,slug,percent=0)
+        found_post = get_object_or_404(Post,catergories=found_category,slug=slug,published=True)
+        read_post(request,category,slug,percent=0)
     context = {
         "post":found_post,
     }
     return render(request,"post.html",context)
 
-def read_post(request,catergory=None,slug=None,percent=0):
-    found_catergory = get_object_or_404(Category,visible=True,name=catergory)
-    found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug,published=True)
+def read_post(request,category=None,slug=None,percent=0):
+    found_category = get_object_or_404(Category,visible=True,name=category)
+    found_post = get_object_or_404(Post,catergories=found_category,slug=slug,published=True)
     ip_address = get_user_ip(request)
     read_item_exists = Readit.objects.filter(user_id=ip_address,post=found_post).exists()
     if read_item_exists:
@@ -80,9 +80,9 @@ def read_post(request,catergory=None,slug=None,percent=0):
         Readit.objects.create(user_id=ip_address,post=found_post,percentage_read=0)
     return HttpResponse(status=203)
 
-def liked_post(request,catergory=None,slug=None):
-    found_catergory = get_object_or_404(Category,visible=True,name=catergory)
-    found_post = get_object_or_404(Post,catergories=found_catergory,slug=slug)
+def liked_post(request,category=None,slug=None):
+    found_category = get_object_or_404(Category,visible=True,name=category)
+    found_post = get_object_or_404(Post,catergories=found_category,slug=slug)
     ip_addr = get_user_ip(request)
     if not Vote.objects.filter(user_id=ip_addr,post=found_post).exists():
         Vote.objects.create(user_id=ip_addr,post=found_post)

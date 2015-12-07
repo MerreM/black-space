@@ -8,16 +8,16 @@
         <p>Or for that matter than anyone but me will ever read it.</p>
     </div>
     <div>
-        {% for catergory,post_list in posts.items %}
+        {% for category,post_list in posts.items %}
             <div class="panel panel-primary">
                 <div class=panel-heading>
-                    <h2 class=panel-title><a href="{% url 'blog:catergory' catergory=catergory.name %}">{{catergory.name}}</a></h2>
+                    <h2 class=panel-title><a href="{% url 'blog:category' category=category.name %}">{{category.name}}</a></h2>
                 </div>
                 <div class=panel-body>
                     <ul class=list-group>
                         {% for post in post_list %}
                         <li class="list-group-item">
-                            <a href="{%url 'blog:post' catergory=catergory.name slug=post.slug %}">{{post.title}}</a>
+                            <a href="{%url 'blog:post' category=category.name slug=post.slug %}">{{post.title}}</a>
                         </li>
                         {% empty %}
                             ...
