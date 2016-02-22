@@ -1,8 +1,8 @@
-from django.conf.urls import patterns, include, url
+from the_list import views
+from django.conf.urls import url
 
 from django.contrib import admin
 admin.autodiscover()
-from the_list import views
 
 urlpatterns = [
     url(r'^$', views.is_it_on_the_list, name='on_the_list'),

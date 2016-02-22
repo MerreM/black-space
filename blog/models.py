@@ -1,23 +1,28 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 import markdown
+
 
 class Category(models.Model):
     name = models.CharField(max_length=256)
     visible = models.BooleanField(default=False)
-    parent = models.ForeignKey('self',blank=True,null=True)
+    parent = models.ForeignKey('self', blank=True, null=True)
+
     def __str__(self):
-        return u'%s'%self.name
+        return u'%s' % self.name
 
     class Meta:
         ordering = ["id"]
+
 
 class Tag(models.Model):
     tag = models.CharField(max_length=64)
 
     def __str__(self):
-        return u"%s"%self.tag
+        return u"%s" % self.tag
+
 
 class Post(models.Model):
     author = models.ForeignKey(User)
@@ -26,7 +31,7 @@ class Post(models.Model):
     post = models.TextField()
     priority = models.IntegerField(null=True)
     catergories = models.ManyToManyField(Category)
-    tags = models.ManyToManyField(Tag,blank=True)
+    tags = models.ManyToManyField(Tag, blank=True)
     published = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -38,10 +43,11 @@ class Post(models.Model):
         return markdown.markdown(self.post)
 
     def __str__(self):
-        return u'%s by %s (%s)' %(self.title,self.author,self.created)
+        return u'%s by %s (%s)' % (self.title, self.author, self.created)
 
     class Meta:
         get_latest_by = 'created'
+
 
 class Readit(models.Model):
     user_id = models.GenericIPAddressField()
@@ -51,7 +57,8 @@ class Readit(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return u'User from %s read %s%% of %s'%(self.user_id,self.percentage_read,self.post.title)
+        return u'User from {} read {}%% of {}'.format(
+            self.user_id, self.percentage_read, self.post.title)
 
     class Meta:
         unique_together = (("user_id", "post"),)
@@ -63,14 +70,12 @@ class Vote(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return u'User from %s wants more'%(self.user_id)
+        return u'User from %s wants more' % (self.user_id)
 
     class Meta:
         unique_together = (("user_id", "post"),)
 
-from django.db.models.signals import pre_save
-from django.dispatch import receiver
+
 @receiver(pre_save, sender=Post)
 def my_handler(sender, **kwargs):
     pass
-
