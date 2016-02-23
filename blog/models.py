@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 import markdown
+from django_markdown.models import MarkdownField
 
 
 class Category(models.Model):
@@ -28,7 +29,7 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     title = models.CharField(max_length=256)
     slug = models.SlugField()
-    post = models.TextField()
+    post = MarkdownField()
     priority = models.IntegerField(null=True)
     catergories = models.ManyToManyField(Category)
     tags = models.ManyToManyField(Tag, blank=True)

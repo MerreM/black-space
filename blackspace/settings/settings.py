@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.webdesign',
     'django.contrib.sites',
     'django_extensions',
+    'django_markdown',
     'pipeline',
     'blog',
     'mainsite',

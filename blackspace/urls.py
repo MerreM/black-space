@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 import blackspace.settings
 
 urlpatterns = [
+	url(r'^markdown/', include( 'django_markdown.urls')),
     url(r'^', include('mainsite.urls', namespace='mainsite')),
     url(r'^writing/', include('blog.urls', namespace='blog')),
     url(r'^games/', include('civ_5_tracker.urls', namespace='games')),
