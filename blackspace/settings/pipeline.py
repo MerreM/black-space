@@ -138,7 +138,7 @@ PIPELINE_JS = {
           'js/liquidfun/liquidfun.js',
           'js/liquidfun/stolen.js',
         ),
-        'output_filename': 'js/canvas.min.js',
+        'output_filename': 'js/liquid_fun.min.js',
     },
 }
 
